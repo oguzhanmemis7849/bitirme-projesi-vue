@@ -1,15 +1,11 @@
 <template>
-  <div>
-      About Page
-  </div>
+<div>
+    Products Page
+</div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-        }
-    },
 
 }
 </script>
