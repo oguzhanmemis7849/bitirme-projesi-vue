@@ -1,40 +1,30 @@
 <template>
   <v-app>
-    <v-app-bar app color="grey lighten-2">
-      <div class="d-flex align-center">
-        <!-- <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="@/assets/Header/moogi-header-logo.png"
-          transition="scale-transition"
-          width="40"
-        /> -->
+      <v-app-bar app color="grey lighten-2" height="100px">
+        <div class="d-flex align-center">
+          <v-img
+            alt="Vuetify Name"
+            class="shrink mt-1 hidden-sm-and-down"
+            contain
+            min-width="100"
+            src="@/assets/Header/moogi-header-logo.png"
+            width="250"
+            @click="routeHome"
+          />
+        </div>
+        <v-spacer></v-spacer>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="@/assets/Header/moogi-header-logo.png"
-          width="175"
-          @click="routeHome"
-        />
-      </div>
-      <v-spacer></v-spacer>
+        <v-btn x-large text @click="routeHome">Ana Sayfa</v-btn>
+        <v-btn x-large text @click="routeProducts">Ürünler</v-btn>
+        <v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
+        <v-spacer></v-spacer>
 
-      <v-btn text @click="routeHome">Ana Sayfa</v-btn>
-      <v-btn text @click="routeProducts">Ürünler</v-btn>
-      <v-btn text @click="routeAbout">Hakkımızda</v-btn>
 
-      <v-spacer></v-spacer>
-
-      <search />
-    </v-app-bar>
-
-    <v-main>
-      <router-view />
-    </v-main>
+        <search />
+      </v-app-bar>
+      <v-main>
+        <router-view />
+      </v-main>
   </v-app>
 </template>
 
