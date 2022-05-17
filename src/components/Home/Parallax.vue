@@ -10,16 +10,16 @@
           <h1 class="textBackground">Siparişlerinizi bu marketlerden verebilirsiniz...</h1>
         </v-col> 
         <v-col md="3" sm="6" xsm="6">
-            <v-img src="@/assets/Home/a101-image.png" ></v-img>
+            <v-img src="@/assets/Home/a101-image.png"  ></v-img>
         </v-col>
         <v-col md="3" sm="6" xsm="6">
-            <v-img src="@/assets/Home/bim-image.png"></v-img>
+            <v-img src="@/assets/Home/bim-image.png"  ></v-img>
         </v-col>
         <v-col md="3" sm="6" xsm="6"> 
-            <v-img src="@/assets/Home/sok-image.png"></v-img>
+            <v-img src="@/assets/Home/sok-image.png"  ></v-img>
         </v-col>
         <v-col md="3" sm="6" xsm="6">
-            <v-img src="@/assets/Home/migros-image.png"></v-img>
+            <v-img src="@/assets/Home/migros-image.png"  ></v-img>
         </v-col>
       </v-row>
     </v-container>
