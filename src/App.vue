@@ -1,6 +1,11 @@
 <template>
 	<v-app>
-		<v-app-bar app color="grey lighten-2" height="100px">
+		<v-app-bar
+			v-if="this.$store.state.isAuthenticated"
+			app
+			color="grey lighten-2"
+			height="100px"
+		>
 			<div class="d-flex align-center">
 				<v-img
 					alt="Vuetify Name"
