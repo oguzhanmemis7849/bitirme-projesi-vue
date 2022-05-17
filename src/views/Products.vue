@@ -1,23 +1,12 @@
 <template>
-	<div>
-		<input v-model="userData.username" type="text" />
-		<input v-model="userData.fullname" type="text" />
-		<input v-model="userData.password" type="text" />
-		<button>ASDSADASSAD</button>
-	</div>
+	<product></product>
 </template>
 
 <script>
+import Product from "../components/Products/Product.vue"
 export default {
-	data() {
-		return {
-			userData: {
-				username: null,
-				fullname: null,
-				password: null,
-			},
-		}
+	components: {
+		Product,
 	},
-	methods: {},
 }
 </script>

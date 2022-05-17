@@ -1,34 +1,95 @@
 {
-  "users": [
-    {
-      "firstName": "test",
-      "lastName": "test",
-      "email": "test@test.com",
-      "password": "12345678",
-      "id": 1
-    },
-    {
-      "firstName": "asd",
-      "lastName": "asd",
-      "email": "asd@asd.asd",
-      "password": "asdasdasd",
-      "id": 2
-    },
-    {
-      "firstName": "umut",
-      "lastName": "teker",
-      "email": "umut@teker.com",
-      "password": "12345678",
-      "id": 3
-    },
-    {
-      "firstName": "burak",
-      "lastName": "burak",
-      "email": "burak@burak.com",
-      "password": "12345678",
-      "id": 4
-    }
-  ],
-  "products": [],
-  "cart": []
+	"users": [
+		{
+			"firstName": "test",
+			"lastName": "test",
+			"email": "test@test.com",
+			"password": "12345678",
+			"id": 1
+		},
+		{
+			"firstName": "asd",
+			"lastName": "asd",
+			"email": "asd@asd.asd",
+			"password": "asdasdasd",
+			"id": 2
+		},
+		{
+			"firstName": "umut",
+			"lastName": "teker",
+			"email": "umut@teker.com",
+			"password": "12345678",
+			"id": 3
+		},
+		{
+			"firstName": "burak",
+			"lastName": "burak",
+			"email": "burak@burak.com",
+			"password": "12345678",
+			"id": 4
+		}
+	],
+	"products": [
+		{
+			"src": "bulgur.png",
+			"name": "Bulgur",
+			"price": "15 TL"
+		},
+		{
+			"src": "fanta.png",
+			"name": "Fanta",
+			"price": "25 TL"
+		},
+		{
+			"src": "aycicek-yagi.png",
+			"name": "Ayçiçek Yağı 5L",
+			"price": "125 TL"
+		},
+		{
+			"src": "barbunya.png",
+			"name": "Barbunya",
+			"price": "45 TL"
+		},
+		{
+			"src": "camasir-deterjani.png",
+			"name": "Çamaşır Deterjanı",
+			"price": "85 TL"
+		},
+		{
+			"src": "coca-cola.png",
+			"name": "Coca Cola",
+			"price": "15 TL"
+		},
+		{
+			"src": "damacana-su.png",
+			"name": "Su 19Lt",
+			"price": "31 TL"
+		},
+		{
+			"src": "esmer-un.png",
+			"name": "Esmer Un",
+			"price": "20 TL"
+		},
+		{
+			"src": "kirmizi-mercimek.png",
+			"name": "Kırmızı Mercimek",
+			"price": "25 TL"
+		},
+		{
+			"src": "fanta.png",
+			"name": "Fanta",
+			"price": "25 TL"
+		},
+		{
+			"src": "fanta.png",
+			"name": "Fanta",
+			"price": "25 TL"
+		},
+		{
+			"src": "fanta.png",
+			"name": "Fanta",
+			"price": "25 TL"
+		}
+	],
+	"cart": []
 }

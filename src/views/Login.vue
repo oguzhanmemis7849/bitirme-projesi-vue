@@ -210,7 +210,7 @@ export default {
 							setTimeout(() => {
 								this.$router.push("/")
 							}, 1000)
-						} else alert("Böyle bir kayıtlı kullanıcı bulunmamaktadır!")
+						} else alert("Böyle kayıtlı bir kullanıcı bulunmamaktadır!")
 					})
 			}
 		},
