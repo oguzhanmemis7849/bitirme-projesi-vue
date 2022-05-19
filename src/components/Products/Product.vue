@@ -1,5 +1,5 @@
 <template>
-	<v-container>
+	<!-- <v-container>
 		<v-layout>
 			<v-flex xs12 sm2 class="d-flex">
 				<v-card
@@ -28,6 +28,36 @@
 				</v-card>
 			</v-flex>
 		</v-layout>
+	</v-container> -->
+
+	<v-container>
+		<v-row class="pl-4 pt-4" justify="center">
+			<v-card
+				v-for="product in products"
+				:key="product"
+				class="ma-3 px-0 col-2 d-flex flex-column align-center"
+				hover
+			>
+				<v-img
+					height="280"
+					:src="require('@/assets/Products/' + product.src)"
+					:alt="product.name"
+					class="ml-0"
+				>
+				</v-img>
+
+				<v-card-title>
+					<div class="font-weight-bold ml-1">
+						{{ product.name }}
+					</div>
+				</v-card-title>
+
+				<v-card-text class="text-center">{{ product.price }} tl</v-card-text>
+				<v-card-actions>
+					<v-btn color="error"> Sepete Ekle!</v-btn>
+				</v-card-actions>
+			</v-card>
+		</v-row>
 	</v-container>
 </template>
 
