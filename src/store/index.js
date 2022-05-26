@@ -4,7 +4,14 @@ import createPersistedState from "vuex-persistedstate"
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-	state: { user: null, isAuthenticated: false },
+	state: {
+		user: null,
+		isAuthenticated: false,
+		cart: {
+			sum: 0,
+			products: [],
+		},
+	},
 	mutations: {
 		setUser(state, user) {
 			state.user = user
@@ -14,6 +21,7 @@ const store = new Vuex.Store({
 			delete state.user.password
 		},
 	},
+	getters: {},
 	actions: {},
 	modules: {},
 	plugins: [createPersistedState()],

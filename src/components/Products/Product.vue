@@ -35,7 +35,7 @@
 			<v-card
 				v-for="product in products"
 				:key="product"
-				class="ma-3 px-0 col-2 d-flex flex-column align-center"
+				class="ma-3 px-0 col-1 d-flex flex-column align-center"
 				hover
 			>
 				<v-img
@@ -54,7 +54,7 @@
 
 				<v-card-text class="text-center">{{ product.price }} tl</v-card-text>
 				<v-card-actions>
-					<v-btn color="error"> Sepete Ekle!</v-btn>
+					<v-btn color="error" @click="addCart(product)"> Sepete Ekle!</v-btn>
 				</v-card-actions>
 			</v-card>
 		</v-row>
@@ -66,13 +66,26 @@ export default {
 	data() {
 		return {
 			products: [],
+			cart: { sum: 0, products: [] },
 		}
 	},
 	mounted() {
 		this.$http.get("/products").then((result) => {
+			result.data.forEach((element) => {
+				element.amount = 1
+			})
 			this.products = result.data
-			console.log(this.products)
 		})
+	},
+	methods: {
+		addCart(product) {
+			if (!this.cart.products.includes(product)) {
+				this.cart.products.push(product)
+				this.cart.sum += product.price * product.amount
+				console.log(this.cart)
+				this.$emit("cartList", this.cart)
+			}
+		},
 	},
 }
 </script>
