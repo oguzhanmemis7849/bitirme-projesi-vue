@@ -1,8 +1,12 @@
 <template>
 	<v-container>
 		<v-row class="pl-4 pt-4" justify="center">
+			<div v-if="this.$store.state.filteredProducts.length == 0">
+				Aradığınız ürün bulunmamaktadır. Lütfen ürünün adını düzgün yazdığınıza
+				emin olunuz!
+			</div>
 			<v-card
-				v-for="product in products"
+				v-for="product in this.$store.state.filteredProducts"
 				:key="product"
 				class="ma-3 px-0 col-1 d-flex flex-column align-center"
 				style="height: 360px"
@@ -34,7 +38,6 @@
 export default {
 	data() {
 		return {
-			products: [],
 			cart: { sum: 0, products: [] },
 		}
 	},
@@ -43,12 +46,15 @@ export default {
 			result.data.forEach((element) => {
 				element.amount = 1
 			})
-			this.products = result.data
+
+			this.$store.commit("setProducts", result.data)
+			this.$store.commit("resetProducts", result.data)
 		})
 	},
 	methods: {
 		addCart(product) {
 			if (!this.cart.products.includes(product)) {
+				product.amount = 1
 				this.cart.products.push(product)
 				this.cart.sum += product.price * product.amount
 				this.$emit("cartList", this.cart)

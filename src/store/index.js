@@ -11,8 +11,15 @@ const store = new Vuex.Store({
 			sum: 0,
 			products: [],
 		},
+		Products: [],
 	},
 	mutations: {
+		resetProducts(state, products) {
+			state.Products = products
+		},
+		setProducts(state, products) {
+			state.filteredProducts = products
+		},
 		setUser(state, user) {
 			state.user = user
 			state.isAuthenticated = true
