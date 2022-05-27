@@ -1,6 +1,7 @@
 <template>
-	<div class="d-flex flex-row">
+	<div class="d-flex" style="padding: 0 10% 0 10%">
 		<product class="col-9" @cartList="transport($event)"></product>
+
 		<cart class="col-3" :cart="cart"></cart>
 	</div>
 </template>

@@ -1,6 +1,7 @@
 <template>
 	<v-app>
 		<v-app-bar
+			style="padding: 0 10% 0 10%"
 			v-if="this.$store.state.isAuthenticated"
 			app
 			color="grey lighten-2"
@@ -18,13 +19,13 @@
 				/>
 			</div>
 			<v-spacer></v-spacer>
-
-			<v-btn x-large text @click="routeHome">Ana Sayfa</v-btn>
-			<v-btn x-large text @click="routeProducts">Ürünler</v-btn>
-			<v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
+			<search v-if="$route.path == '/products'" />
 			<v-spacer></v-spacer>
-
-			<search />
+			<div>
+				<v-btn x-large text @click="routeHome">Ana Sayfa</v-btn>
+				<v-btn x-large text @click="routeProducts">Ürünler</v-btn>
+				<v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
+			</div>
 		</v-app-bar>
 		<v-main>
 			<router-view />
