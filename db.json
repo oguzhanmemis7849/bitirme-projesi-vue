@@ -1,157 +1,180 @@
 {
-  "users": [
-    {
-      "firstName": "test",
-      "lastName": "test",
-      "email": "test@test.com",
-      "password": "12345678",
-      "id": 1
-    },
-    {
-      "firstName": "asd",
-      "lastName": "asd",
-      "email": "asd@asd.asd",
-      "password": "asdasdasd",
-      "id": 2
-    },
-    {
-      "firstName": "umut",
-      "lastName": "teker",
-      "email": "umut@teker.com",
-      "password": "12345678",
-      "id": 3
-    },
-    {
-      "firstName": "burak",
-      "lastName": "burak",
-      "email": "burak@burak.com",
-      "password": "12345678",
-      "id": 4
-    },
-    {
-      "firstName": "Oğuzhan",
-      "lastName": "Memiş",
-      "email": "oguzhanmemis266@gmail.com",
-      "password": "oguzhanmemis123",
-      "id": 5
-    }
-  ],
-  "products": [
-    {
-      "src": "bulgur.png",
-      "name": "Bulgur",
-      "price": 15
-    },
-    {
-      "src": "fanta.png",
-      "name": "Fanta",
-      "price": 25
-    },
-    {
-      "src": "aycicek-yagi.png",
-      "name": "Ayçiçek Yağı 5L",
-      "price": 125
-    },
-    {
-      "src": "barbunya.png",
-      "name": "Barbunya",
-      "price": 45
-    },
-    {
-      "src": "camasir-deterjani.png",
-      "name": "Çamaşır Deterjanı",
-      "price": 85
-    },
-    {
-      "src": "coca-cola.png",
-      "name": "Coca Cola",
-      "price": 15
-    },
-    {
-      "src": "damacana-su.png",
-      "name": "Su 19Lt",
-      "price": 32
-    },
-    {
-      "src": "esmer-un.png",
-      "name": "Esmer Un",
-      "price": 20
-    },
-    {
-      "src": "kirmizi-mercimek.png",
-      "name": "Kırmızı Mercimek",
-      "price": 30
-    },
-    {
-      "src": "kup-seker.png",
-      "name": "Küp Şeker",
-      "price": 23
-    },
-    {
-      "src": "lays.png",
-      "name": "Lays Büyük Boy",
-      "price": 16
-    },
-    {
-      "src": "misir-yagi.png",
-      "name": "Mısır Yağı",
-      "price": 119
-    },
-    {
-      "src": "pirinc.png",
-      "name": "Pirinç",
-      "price": 23
-    },
-    {
-      "src": "pringles.png",
-      "name": "Pringles",
-      "price": 24
-    },
-    {
-      "src": "ruffles.png",
-      "name": "Ruffles",
-      "price": 19
-    },
-    {
-      "src": "sivi-sabun.png",
-      "name": "Sıvı Sabun",
-      "price": 24
-    },
-    {
-      "src": "sprite.png",
-      "name": "Sprite",
-      "price": 11
-    },
-    {
-      "src": "su-5lt.png",
-      "name": "5 Lt Su",
-      "price": 6
-    },
-    {
-      "src": "tereyagi.png",
-      "name": "Tereyağı",
-      "price": 36
-    },
-    {
-      "src": "toz-seker.png",
-      "name": "Toz Şeker",
-      "price": 20
-    },
-    {
-      "src": "un.png",
-      "name": "Un",
-      "price": 18
-    },
-    {
-      "src": "yesil-mercimek.png",
-      "name": "Yeşil Mercimek",
-      "price": 12
-    },
-    {
-      "src": "zeytin-yagi.png",
-      "name": "Zeytin Yağı",
-      "price": 119
-    }
-  ],
-  "cart": []
+	"users": [
+		{
+			"firstName": "test",
+			"lastName": "test",
+			"email": "test@test.com",
+			"password": "12345678",
+			"id": 1
+		},
+		{
+			"firstName": "asd",
+			"lastName": "asd",
+			"email": "asd@asd.asd",
+			"password": "asdasdasd",
+			"id": 2
+		},
+		{
+			"firstName": "umut",
+			"lastName": "teker",
+			"email": "umut@teker.com",
+			"password": "12345678",
+			"id": 3
+		},
+		{
+			"firstName": "burak",
+			"lastName": "burak",
+			"email": "burak@burak.com",
+			"password": "12345678",
+			"id": 4
+		},
+		{
+			"firstName": "Oğuzhan",
+			"lastName": "Memiş",
+			"email": "oguzhanmemis266@gmail.com",
+			"password": "oguzhanmemis123",
+			"id": 5
+		}
+	],
+	"products": [
+		{
+			"src": "bulgur.png",
+			"name": "Bulgur",
+			"price": 15,
+			"category": "temel-gida"
+		},
+		{
+			"src": "fanta.png",
+			"name": "Fanta",
+			"price": 25,
+			"category": "icecek"
+		},
+		{
+			"src": "aycicek-yagi.png",
+			"name": "Ayçiçek Yağı 5L",
+			"price": 125,
+			"category": "temel-gida"
+		},
+		{
+			"src": "barbunya.png",
+			"name": "Barbunya",
+			"price": 45,
+			"category": "temel-gida"
+		},
+		{
+			"src": "camasir-deterjani.png",
+			"name": "Çamaşır Deterjanı",
+			"price": 85,
+			"category": "temizlik"
+		},
+		{
+			"src": "coca-cola.png",
+			"name": "Coca Cola",
+			"price": 15,
+			"category": "icecek"
+		},
+		{
+			"src": "damacana-su.png",
+			"name": "Su 19Lt",
+			"price": 32,
+			"category": "icecek"
+		},
+		{
+			"src": "esmer-un.png",
+			"name": "Esmer Un",
+			"price": 20,
+			"category": "temel-gida"
+		},
+		{
+			"src": "kirmizi-mercimek.png",
+			"name": "Kırmızı Mercimek",
+			"price": 30,
+			"category": "temel-gida"
+		},
+		{
+			"src": "kup-seker.png",
+			"name": "Küp Şeker",
+			"price": 23,
+			"category": "temel-gida"
+		},
+		{
+			"src": "lays.png",
+			"name": "Lays Büyük Boy",
+			"price": 16,
+			"category": "atistirmalik"
+		},
+		{
+			"src": "misir-yagi.png",
+			"name": "Mısır Yağı",
+			"price": 119,
+			"category": "temel-gida"
+		},
+		{
+			"src": "pirinc.png",
+			"name": "Pirinç",
+			"price": 23,
+			"category": "temel-gida"
+		},
+		{
+			"src": "pringles.png",
+			"name": "Pringles",
+			"price": 24,
+			"category": "atistirmalik"
+		},
+		{
+			"src": "ruffles.png",
+			"name": "Ruffles",
+			"price": 19,
+			"category": "atistirmalik"
+		},
+		{
+			"src": "sivi-sabun.png",
+			"name": "Sıvı Sabun",
+			"price": 24,
+			"category": "temizlik"
+		},
+		{
+			"src": "sprite.png",
+			"name": "Sprite",
+			"price": 11,
+			"category": "icecek"
+		},
+		{
+			"src": "su-5lt.png",
+			"name": "5 Lt Su",
+			"price": 6,
+			"category": "icecek"
+		},
+		{
+			"src": "tereyagi.png",
+			"name": "Tereyağı",
+			"price": 36,
+			"category": "temel-gida"
+		},
+		{
+			"src": "toz-seker.png",
+			"name": "Toz Şeker",
+			"price": 20,
+			"category": "temel-gida"
+		},
+		{
+			"src": "un.png",
+			"name": "Un",
+			"price": 18,
+			"category": "temel-gida"
+		},
+		{
+			"src": "yesil-mercimek.png",
+			"name": "Yeşil Mercimek",
+			"price": 12,
+			"category": "temel-gida"
+		},
+		{
+			"src": "zeytin-yagi.png",
+			"name": "Zeytin Yağı",
+			"price": 119,
+			"category": "temel-gida"
+		}
+	],
+	"cart": []
 }
