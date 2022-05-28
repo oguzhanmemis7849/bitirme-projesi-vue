@@ -54,10 +54,16 @@
 			</div>
 
 			<div v-if="this.cart.sum > 0" class="white--text text-center">
-				Toplam Ücret : {{ cart.sum }} TL
+				Toplam Ücret : <strong> {{ cart.sum }} TL </strong>
 			</div>
 			<div v-if="!this.cart.sum > 0" class="white--text text-center">
 				Sepetinizde Ürün Bulunmamaktadır!
+			</div>
+
+			<div class="d-flex justify-center">
+				<v-btn v-if="this.cart.sum > 0" @click="resetcart">
+					Sepeti Boşalt
+				</v-btn>
 			</div>
 
 			<div v-if="this.cart.sum > 0" class="d-flex justify-center mt-5">
@@ -66,6 +72,33 @@
 		</v-navigation-drawer>
 	</div>
 </template>
+
+<script>
+export default {
+	props: ["cart"],
+	methods: {
+		resetcart() {
+			this.cart.sum = 0
+			this.cart.products = []
+		},
+		increase(product) {
+			product.amount++
+			this.cart.sum += product.price
+		},
+		decrease(product) {
+			product.amount--
+			this.cart.sum -= product.price
+			if (product.amount == 0) {
+				product.amount++
+				this.cart.products.splice(
+					this.cart.products.findIndex((e) => e.name === product.name),
+					1
+				)
+			}
+		},
+	},
+}
+</script>
 
 <style>
 .bg {
@@ -100,26 +133,3 @@
 	top: 10.5%;
 }
 </style>
-
-<script>
-export default {
-	props: ["cart"],
-	methods: {
-		increase(product) {
-			product.amount++
-			this.cart.sum += product.price
-		},
-		decrease(product) {
-			product.amount--
-			this.cart.sum -= product.price
-			if (product.amount == 0) {
-				product.amount++
-				this.cart.products.splice(
-					this.cart.products.findIndex((e) => e.name === product.name),
-					1
-				)
-			}
-		},
-	},
-}
-</script>
