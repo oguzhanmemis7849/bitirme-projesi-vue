@@ -25,9 +25,6 @@ export default {
         ],
     };
   },
-  created(){
-    console.log(this.src1)
-  }
 };
 </script>
 

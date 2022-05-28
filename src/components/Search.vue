@@ -18,7 +18,7 @@
 			style="margin-right: 5px; width: 300px"
 			v-model="searchProducts"
 			label="Ürün Arayın"
-			@keydown.enter="search()"
+			@keydown.enter="search"
 		>
 		</v-text-field>
 		<v-btn color="error" @click="search"> Ara </v-btn>
@@ -34,7 +34,8 @@ export default {
 		}
 	},
 	methods: {
-		search() {
+		search(event) {
+			event.preventDefault()
 			this.filteredProducts = []
 			this.$http.get("/products").then((result) => {
 				result.data.forEach((element) => {
