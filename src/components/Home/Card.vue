@@ -5,7 +5,9 @@
         style="display: flex; justify-content: center; align-items: center"
         >{{ cardTitle }}</v-card-title
       >
-      <hr />
+      <v-container>
+        <hr />
+      </v-container>
       <v-card-text>
         {{ cardText }}
       </v-card-text>

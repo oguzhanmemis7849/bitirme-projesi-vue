@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<v-app>
+				
 			<v-dialog v-model="dialog" persistent max-width="600px" min-width="360px">
+				<card :cardTitle="cardTitle" :cardText="cardText"></card>
 				<div :isLoggedPanelOpen="isLoggedPanelOpen">
 					<v-tabs
 						v-model="tab"
@@ -159,9 +161,15 @@
 </template>
 
 <script>
-export default {
+import Card from "../components/Home/Card.vue"
+
+export default 
+  {
+	components: { Card },
 	data() {
 		return {
+			cardTitle: "Hoşgeldiniz...",
+			cardText: "Uygulamamızı kullanmak için kayıt olmanız veya üye girişi yapmanız gerekmektedir.",
 			progressBar: false,
 			dialog: true,
 			tab: 0,
@@ -209,7 +217,7 @@ export default {
 							this.progressBar = true
 							setTimeout(() => {
 								this.$router.push("/")
-							}, 1000)
+							}, 500)
 						} else alert("Böyle kayıtlı bir kullanıcı bulunmamaktadır!")
 					})
 			}

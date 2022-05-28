@@ -24,6 +24,10 @@ const store = new Vuex.Store({
 			state.user = user
 			state.isAuthenticated = true
 		},
+		logOutUser(state){
+			state.user = null
+			state.isAuthenticated = false
+		},
 		deletePassword(state) {
 			delete state.user.password
 		},

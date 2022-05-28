@@ -4,6 +4,8 @@ import Login from "../views/Login.vue"
 import Home from "../views/Home.vue"
 import Products from "../views/Products.vue"
 import About from "../views/About.vue"
+import Payment from "../views/Payment.vue"
+import MyProfile from "../views/MyProfile.vue"
 import store from "../store"
 
 Vue.use(VueRouter)
@@ -28,6 +30,16 @@ const routes = [
 		path: "/about",
 		name: "About",
 		component: About,
+	},
+	{
+		path: "/myProfile",
+		name: "myProfile",
+		component: MyProfile,
+	},
+	{
+		path: "/payment",
+		name: "Payment",
+		component: Payment,
 	},
 ]
 
