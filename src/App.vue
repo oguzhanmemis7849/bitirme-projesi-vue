@@ -38,6 +38,7 @@
 <script>
 import Search from "./components/Search.vue"
 import UserInfo from './components/userInfo.vue'
+
 export default {
 	name: "App",
 	components: {
