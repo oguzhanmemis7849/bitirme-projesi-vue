@@ -36,6 +36,7 @@
 
 <script>
 export default {
+	props: ["category"],
 	data() {
 		return {
 			cart: { sum: 0, products: [] },

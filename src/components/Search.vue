@@ -1,6 +1,7 @@
 <template>
 	<v-form
 		style="margin-top:25px; display:flex; justify-content:center; align-items;center"
+		v-on:submit.prevent
 	>
 		<v-autocomplete
 			v-model="searchProducts"
@@ -10,6 +11,7 @@
 			label="Ürün Arayın"
 			clearable
 			@click:clear="reset"
+			@keydown.enter="search"
 		></v-autocomplete>
 
 		<v-btn color="error" @click="search"> Ara </v-btn>
@@ -25,9 +27,9 @@ export default {
 			items: this.$store.state.Products.map((item) => item.name),
 		}
 	},
+
 	methods: {
-		search(event) {
-			event.preventDefault()
+		search() {
 			this.filteredProducts = []
 			this.$http.get("/products").then((result) => {
 				result.data.forEach((element) => {

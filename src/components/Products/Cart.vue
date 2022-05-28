@@ -1,5 +1,5 @@
 <template>
-	<div class="bg d-flex align-center flex-column pt-8 sticky">
+	<div class="bg d-flex align-center flex-column pt-8">
 		<v-navigation-drawer width="70%" floating class="bg of">
 			<div
 				class="d-flex white--text text-center text-h4 justify-space-between align-center mb-10"
