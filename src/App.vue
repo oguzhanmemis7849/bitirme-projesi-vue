@@ -32,6 +32,7 @@
 		<v-main>
 			<router-view />
 		</v-main>
+		<div>footer</div>
 	</v-app>
 </template>
 
