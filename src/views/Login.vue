@@ -221,6 +221,9 @@ export default {
         lastName: "",
         email: "",
         password: "",
+        phoneNumber:"",
+        address:"",
+        birthday:""
       },
 
       loginPassword: "",

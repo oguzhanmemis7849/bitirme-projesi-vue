@@ -7,6 +7,7 @@ const store = new Vuex.Store({
 	state: {
 		user: null,
 		isAuthenticated: false,
+		discountProducts: [],
 		cart: {
 			sum: 0,
 			products: [],
@@ -31,6 +32,9 @@ const store = new Vuex.Store({
 		deletePassword(state) {
 			delete state.user.password
 		},
+		setDiscountProducts(state, val){
+			state.discountProducts = val;
+		}
 	},
 	getters: {},
 	actions: {},

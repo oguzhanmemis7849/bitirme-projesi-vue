@@ -6,7 +6,7 @@
       </div>
       <br />
       <div class="bg-about">
-        <h4>{{ cardText }}</h4>
+        <p>{{ cardText }}</p>
       </div>
       <br />
       <v-card>

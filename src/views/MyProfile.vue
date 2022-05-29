@@ -74,12 +74,13 @@ export default {
         this.$store.state.user.lastName.slice(1),
         email: this.$store.state.user.email,
         firstName: this.$store.state.user.firstName,
-        lastName: this.$store.state.user.lastName
+        lastName: this.$store.state.user.lastName,
+        phoneNumber: this.$store.state.user.phoneNumber
     };
   },
   methods:{
       saveForm() {
-          this.$http.post("/users", { ...this.userData }).then(alert("Başarıyla Üye Oldunuz!"))
+          alert("Kaydedildi")
       },
   }
 };
