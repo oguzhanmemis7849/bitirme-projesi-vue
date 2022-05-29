@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-container>
+    <v-container >
       <v-row>
-        <v-col cols="4" class="text-center">
-          <v-icon size="300">mdi-account</v-icon>
+        <v-col cols="12" md="4" sm="12" class="text-center">
+          <v-icon class="bg-color-gray" size="300">mdi-account</v-icon>
           <br />
           <h1>{{ this.userName }}</h1>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" md="4" sm="12" class=" mt-10" >
           <v-form
             ref="form"
             v-model="valid"
@@ -77,7 +77,17 @@ export default {
         lastName: this.$store.state.user.lastName
     };
   },
+  methods:{
+      saveForm() {
+          this.$http.post("/users", { ...this.userData }).then(alert("Başarıyla Üye Oldunuz!"))
+      },
+  }
 };
 </script>
 
-<style></style>
+<style scoped>
+.bg-color-gray{
+    background-color: #e0e0e0 ;
+    border-radius: 25px;
+}
+</style>
