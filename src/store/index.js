@@ -25,16 +25,16 @@ const store = new Vuex.Store({
 			state.user = user
 			state.isAuthenticated = true
 		},
-		logOutUser(state){
+		logOutUser(state) {
 			state.user = null
 			state.isAuthenticated = false
 		},
 		deletePassword(state) {
 			delete state.user.password
 		},
-		setDiscountProducts(state, val){
-			state.discountProducts = val;
-		}
+		setDiscountProducts(state, val) {
+			state.discountProducts = val
+		},
 	},
 	getters: {},
 	actions: {},
