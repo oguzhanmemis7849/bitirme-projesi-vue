@@ -26,6 +26,7 @@
 				<v-btn x-large text @click="routeProducts">Ürünler</v-btn>
 				<v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
 				<user-info></user-info>
+				<cart></cart>
 			</div>
 		</v-app-bar>
 		<v-main>
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import Cart from "./components/Products/Cart.vue"
 // import Search from "./components/Search.vue"
 import UserInfo from "./components/userInfo.vue"
 
@@ -44,6 +46,7 @@ export default {
 	components: {
 		// Search,
 		UserInfo,
+		Cart,
 	},
 	data: () => ({
 		items: [

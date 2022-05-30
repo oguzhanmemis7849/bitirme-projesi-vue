@@ -1,26 +1,18 @@
 <template>
-	<div class="bg d-flex align-center flex-column pt-8">
-		<v-navigation-drawer width="70%" floating class="bg of">
-			<div
-				class="d-flex white--text text-center text-h4 justify-space-between align-center mb-10"
-			>
-				SEPETİM
-				<div class="d-flex justify-center">
-					<img
-						src="@/assets/Products/cart.png"
-						alt=" "
-						height="45"
-						width="45"
-					/>
-				</div>
-			</div>
-			<div class="of">
-				<div
+	<div class="text-center">
+		<v-menu offset-y>
+			<template v-slot:activator="{ on, attrs }">
+				<v-btn v-bind="attrs" v-on="on" text x-large>
+					<v-icon large>mdi-cart-variant</v-icon>
+				</v-btn>
+			</template>
+			<v-list>
+				<v-list-item
 					v-for="product in cart.products"
 					:key="product"
 					class="d-flex justify-space-between mb-6 pr-1"
 				>
-					<div class="white--text">
+					<!-- <div class="white--text">
 						<v-btn
 							class="white"
 							elevation="2"
@@ -39,97 +31,35 @@
 						>
 							+</v-btn
 						>
-					</div>
+					</div> -->
 
 					<div>
-						<div class="white--text text-end">
+						<div class="text-end">
 							{{ product.name }}
 						</div>
 
-						<div class="white--text text-end">
-							{{ product.price * product.amount }} TL
-						</div>
+						<div class="text-end">{{ product.price * product.amount }} TL</div>
 					</div>
-				</div>
-			</div>
-
-			<div v-if="this.cart.sum > 0" class="white--text text-center">
-				Toplam Ücret : <strong> {{ cart.sum }} TL </strong>
-			</div>
-			<div v-if="!this.cart.sum > 0" class="white--text text-center">
-				Sepetinizde Ürün Bulunmamaktadır!
-			</div>
-
-			<div class="d-flex justify-center">
-				<v-btn v-if="this.cart.sum > 0" @click="resetcart">
-					Sepeti Boşalt
-				</v-btn>
-			</div>
-
-			<div v-if="this.cart.sum > 0" class="d-flex justify-center mt-5">
-				<v-btn>Ödemeye Geç!</v-btn>
-			</div>
-		</v-navigation-drawer>
+				</v-list-item>
+			</v-list>
+		</v-menu>
 	</div>
 </template>
 
 <script>
+// import { mapState } from "vuex"
 export default {
-	props: ["cart"],
-	methods: {
-		resetcart() {
-			this.cart.sum = 0
-			this.cart.products = []
-		},
-		increase(product) {
-			product.amount++
-			this.cart.sum += product.price
-		},
-		decrease(product) {
-			product.amount--
-			this.cart.sum -= product.price
-			if (product.amount == 0) {
-				product.amount++
-				this.cart.products.splice(
-					this.cart.products.findIndex((e) => e.name === product.name),
-					1
-				)
-			}
-		},
+	name: "Cart",
+	data() {
+		return {
+			cart: { sum: 0, products: [] },
+		}
+	},
+	methods: {},
+	mounted() {
+		this.cart = this.$store.state.cart
 	},
 }
 </script>
 
-<style>
-.bg {
-	background-color: #ff0000 !important;
-}
-
-::-webkit-scrollbar {
-	width: 8px;
-	height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: rgb(255, 242, 242);
-	border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: #fa6060;
-	border-radius: 10px;
-}
-
-.of {
-	overflow: auto;
-	overflow-y: auto;
-	height: 30vw;
-}
-.sticky {
-	height: 44vw;
-	position: sticky !important;
-	top: 10.5%;
-}
-</style>
+<style></style>

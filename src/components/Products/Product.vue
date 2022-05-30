@@ -76,7 +76,8 @@ export default {
 				product.amount = 1
 				this.cart.products.push(product)
 				this.cart.sum += product.price * product.amount
-				this.$emit("cartList", this.cart)
+
+				this.$store.commit("addToCart", this.cart)
 			}
 		},
 	},
