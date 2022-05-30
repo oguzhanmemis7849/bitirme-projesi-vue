@@ -1,135 +1,91 @@
 <template>
-	<div class="bg d-flex align-center flex-column pt-8">
-		<v-navigation-drawer width="70%" floating class="bg of">
-			<div
-				class="d-flex white--text text-center text-h4 justify-space-between align-center mb-10"
-			>
-				SEPETİM
-				<div class="d-flex justify-center">
-					<img
-						src="@/assets/Products/cart.png"
-						alt=" "
-						height="45"
-						width="45"
-					/>
-				</div>
-			</div>
-			<div class="of">
-				<div
-					v-for="product in cart.products"
-					:key="product"
-					class="d-flex justify-space-between mb-6 pr-1"
-				>
-					<div class="white--text">
-						<v-btn
-							class="white"
-							elevation="2"
-							text
-							x-small
-							@click="decrease(product)"
-							>-</v-btn
-						>
-						{{ product.amount }}
-						<v-btn
-							class="white"
-							elevation="2"
-							text
-							x-small
-							@click="increase(product)"
-						>
-							+</v-btn
-						>
+	<div class="text-center">
+		<v-menu offset-y>
+			<template v-slot:activator="{ on, attrs }">
+				<v-btn v-bind="attrs" v-on="on" text x-large>
+					<v-icon color="red" large>mdi-cart-variant </v-icon>
+					<div class="cartLength">
+						{{ cart.products.length }}
 					</div>
+				</v-btn>
+			</template>
 
+			<v-list>
+				<v-list-item
+					v-for="product in getCart"
+					:key="product"
+					class="d-flex grey lighten-2 mb-1 justify-space-between"
+				>
+					<img
+						height="50"
+						:src="require('@/assets/Products/' + product.src)"
+						:alt="product.name"
+						S
+					/>
+					<v-spacer></v-spacer>
 					<div>
-						<div class="white--text text-end">
+						<div class="text-center">
 							{{ product.name }}
 						</div>
 
-						<div class="white--text text-end">
+						<div class="text-center">
 							{{ product.price * product.amount }} TL
 						</div>
 					</div>
-				</div>
-			</div>
-
-			<div v-if="this.cart.sum > 0" class="white--text text-center">
-				Toplam Ücret : <strong> {{ cart.sum }} TL </strong>
-			</div>
-			<div v-if="!this.cart.sum > 0" class="white--text text-center">
-				Sepetinizde Ürün Bulunmamaktadır!
-			</div>
-
-			<div class="d-flex justify-center">
-				<v-btn v-if="this.cart.sum > 0" @click="resetcart">
-					Sepeti Boşalt
-				</v-btn>
-			</div>
-
-			<div v-if="this.cart.sum > 0" class="d-flex justify-center mt-5">
-				<v-btn>Ödemeye Geç!</v-btn>
-			</div>
-		</v-navigation-drawer>
+					<v-spacer></v-spacer>
+					<div class="d-flex">
+						<v-btn x-small @click="increaseProduct(product)">+</v-btn>
+						<div class="mx-1">{{ product.amount }}</div>
+						<v-btn x-small @click="decreaseProduct(product)">-</v-btn>
+					</div>
+				</v-list-item>
+				<v-list-item v-if="cart.products.length != 0">{{
+					cart.sum
+				}}</v-list-item>
+				<v-list-item v-if="cart.products.length != 0" @click="resetCart">
+					Sepeti Boşalt</v-list-item
+				>
+				<v-list-item v-else> Sepetiniz boş</v-list-item>
+			</v-list>
+		</v-menu>
 	</div>
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex"
 export default {
-	props: ["cart"],
+	name: "Cart",
+	data() {
+		return {}
+	},
 	methods: {
-		resetcart() {
-			this.cart.sum = 0
-			this.cart.products = []
+		resetCart() {
+			this.$store.commit("resetCart")
 		},
-		increase(product) {
-			product.amount++
+
+		increaseProduct(product) {
 			this.cart.sum += product.price
+			this.$store.commit("increaseProduct", product)
 		},
-		decrease(product) {
-			product.amount--
+		decreaseProduct(product) {
 			this.cart.sum -= product.price
-			if (product.amount == 0) {
-				product.amount++
-				this.cart.products.splice(
-					this.cart.products.findIndex((e) => e.name === product.name),
-					1
-				)
-			}
+			this.$store.commit("decreaseProduct", product)
 		},
+	},
+	mounted() {},
+	computed: {
+		...mapState(["cart"]),
+		...mapGetters({ getCart: "getCart" }),
 	},
 }
 </script>
 
 <style>
-.bg {
-	background-color: #ff0000 !important;
-}
+.cartLength {
+	font-size: 18px;
 
-::-webkit-scrollbar {
-	width: 8px;
-	height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: rgb(255, 242, 242);
-	border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: #fa6060;
-	border-radius: 10px;
-}
-
-.of {
-	overflow: auto;
-	overflow-y: auto;
-	height: 30vw;
-}
-.sticky {
-	height: 44vw;
-	position: sticky !important;
-	top: 10.5%;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 </style>

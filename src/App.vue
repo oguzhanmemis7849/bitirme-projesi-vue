@@ -19,13 +19,12 @@
 				/>
 			</div>
 			<v-spacer></v-spacer>
-			<!-- <search v-if="$route.path == '/products'" /> -->
-			<v-spacer></v-spacer>
 			<div class="d-flex justify-center align-center">
 				<v-btn x-large text @click="routeHome">Ana Sayfa</v-btn>
 				<v-btn x-large text @click="routeProducts">Ürünler</v-btn>
 				<v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
 				<user-info></user-info>
+				<cart></cart>
 			</div>
 		</v-app-bar>
 		<v-main>
@@ -36,14 +35,14 @@
 </template>
 
 <script>
-// import Search from "./components/Search.vue"
+import Cart from "./components/Products/Cart.vue"
 import UserInfo from "./components/userInfo.vue"
 
 export default {
 	name: "App",
 	components: {
-		// Search,
 		UserInfo,
+		Cart,
 	},
 	data: () => ({
 		items: [

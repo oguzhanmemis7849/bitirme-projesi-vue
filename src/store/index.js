@@ -25,18 +25,46 @@ const store = new Vuex.Store({
 			state.user = user
 			state.isAuthenticated = true
 		},
-		logOutUser(state){
+		logOutUser(state) {
 			state.user = null
 			state.isAuthenticated = false
 		},
 		deletePassword(state) {
 			delete state.user.password
 		},
-		setDiscountProducts(state, val){
-			state.discountProducts = val;
-		}
+		setDiscountProducts(state, val) {
+			state.discountProducts = val
+		},
+		addToCart(state, val) {
+			state.cart.products.push(val)
+		},
+		addSum(state, val) {
+			state.cart.sum += val
+		},
+		increaseProduct(state, val) {
+			state.cart.products.forEach((element) => {
+				if (element.id == val.id) {
+					element.amount++
+				}
+			})
+		},
+		decreaseProduct(state, val) {
+			state.cart.products.forEach((element) => {
+				if (element.id == val.id) {
+					element.amount--
+				}
+			})
+		},
+		resetCart(state) {
+			state.cart.products = []
+			state.cart.sum = 0
+		},
 	},
-	getters: {},
+	getters: {
+		getCart(state) {
+			return state.cart.products
+		},
+	},
 	actions: {},
 	modules: {},
 	plugins: [createPersistedState()],
