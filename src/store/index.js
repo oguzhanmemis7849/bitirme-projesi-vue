@@ -36,7 +36,10 @@ const store = new Vuex.Store({
 			state.discountProducts = val
 		},
 		addToCart(state, val) {
-			state.cart = val
+			state.cart.products.push(val)
+		},
+		addSum(state, val) {
+			state.cart.sum += val
 		},
 	},
 	getters: {},

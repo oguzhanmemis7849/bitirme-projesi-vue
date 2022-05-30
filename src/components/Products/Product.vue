@@ -53,7 +53,6 @@ export default {
 	props: ["category"],
 	data() {
 		return {
-			cart: { sum: 0, products: [] },
 			discountList: [],
 		}
 	},
@@ -71,14 +70,18 @@ export default {
 		})
 	},
 	methods: {
-		addCart(product) {
-			if (!this.cart.products.includes(product)) {
+		addCart(product, sum) {
+			if (
+				!this.$store.state.cart.products
+					.map((element) => element.name)
+					.includes(product.name)
+			) {
 				product.amount = 1
-				this.cart.products.push(product)
-				this.cart.sum += product.price * product.amount
-
-				this.$store.commit("addToCart", this.cart)
-			}
+				// this.cart.products.push(product)
+				sum = product.price * product.amount
+				this.$store.commit("addToCart", product)
+				this.$store.commit("addSum", sum)
+			} else console.log("else girdik")
 		},
 	},
 }

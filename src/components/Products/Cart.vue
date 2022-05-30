@@ -8,9 +8,9 @@
 			</template>
 			<v-list>
 				<v-list-item
-					v-for="product in cart.products"
+					v-for="product in this.cart.products"
 					:key="product"
-					class="d-flex justify-space-between mb-6 pr-1"
+					class="d-flex grey lighten-2 mb-1 justify-space-between"
 				>
 					<!-- <div class="white--text">
 						<v-btn
@@ -33,31 +33,52 @@
 						>
 					</div> -->
 
+					<img
+						height="50"
+						:src="require('@/assets/Products/' + product.src)"
+						:alt="product.name"
+						S
+					/>
 					<div>
-						<div class="text-end">
+						<div class="text-center">
 							{{ product.name }}
 						</div>
 
-						<div class="text-end">{{ product.price * product.amount }} TL</div>
+						<div class="text-center">
+							{{ product.price * product.amount }} TL
+						</div>
 					</div>
 				</v-list-item>
+				<v-list-item>{{ cart.sum }}</v-list-item>
+				<v-list-item v-if="cart.products.length != 0" @click="resetCart">
+					Sepeti Boşalt</v-list-item
+				>
+				<v-list-item v-else> Sepetiniz boş</v-list-item>
 			</v-list>
 		</v-menu>
 	</div>
 </template>
 
 <script>
-// import { mapState } from "vuex"
+import { mapState } from "vuex"
 export default {
 	name: "Cart",
 	data() {
-		return {
-			cart: { sum: 0, products: [] },
-		}
+		return {}
 	},
-	methods: {},
+	methods: {
+		resetCart() {
+			this.cart.products = []
+		},
+	},
 	mounted() {
-		this.cart = this.$store.state.cart
+		console.log(this.cart)
+
+		// this.$store.state.cart.sum = 0
+		// this.$store.state.cart.products = []
+	},
+	computed: {
+		...mapState(["cart"]),
 	},
 }
 </script>
