@@ -13,12 +13,12 @@
 				hover
 			>
 				<!-- <div v-if="discountList.includes(product.name)" style="background : red ; z-index:1;height: 25px; width: inherit;color : white;" >İNDİRİM</div> -->
-				<v-icon
+				<img
 					v-if="discountList.includes(product.name)"
+					src="@/assets/Products/indirim.png"
+					alt=""
 					class="discountIcon"
-					x-large
-					>mdi-exclamation-thick</v-icon
-				>
+				/>
 				<img
 					height="190"
 					:src="require('@/assets/Products/' + product.src)"
@@ -85,7 +85,6 @@ export default {
 
 <style scoped>
 .discountIcon {
-	color: red;
 	position: absolute;
 	top: 0;
 	right: 0;

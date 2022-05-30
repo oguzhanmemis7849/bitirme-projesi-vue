@@ -1,13 +1,16 @@
 <template>
-	<div class="d-flex">
-		Kategoriler :
-		<v-btn
-			v-for="category in categories"
-			:key="category"
-			@click="sendCategory(category)"
-		>
-			{{ category.name }}</v-btn
-		>
+	<div class="d-flex justify-center">
+		<v-card class="mt-3">
+			<v-tabs v-model="tab" background-color="red lighten" dark>
+				<v-tab
+					v-for="category in categories"
+					:key="category"
+					@click="sendCategory(category)"
+				>
+					{{ category.name }}
+				</v-tab>
+			</v-tabs>
+		</v-card>
 	</div>
 </template>
 
@@ -16,10 +19,13 @@ export default {
 	data() {
 		return {
 			categories: [
-				{ name: "Temel Gıda", value: "temel-gida" },
-				{ name: "İçecekler", value: "icecek" },
-				{ name: "Atıştırmalık", value: "atistirmalik" },
-				{ name: "Temizlik Ürünleri", value: "temizlik" },
+				{
+					name: "Tüm Ürünler",
+				},
+				{ name: "TEMEL GIDA", value: "temel-gida" },
+				{ name: "İÇECEKLER", value: "icecek" },
+				{ name: "ATIŞTIRMALIK", value: "atistirmalik" },
+				{ name: "TEMİZLİK ÜRÜNLERİ", value: "temizlik" },
 			],
 			categoriedList: [],
 		}
@@ -32,9 +38,11 @@ export default {
 					if (element.category == category.value)
 						this.categoriedList.push(element)
 				})
+				this.$store.commit("setProducts", this.categoriedList)
+				if (this.categoriedList.length == 0) {
+					this.$store.commit("setProducts", this.$store.state.Products)
+				}
 			})
-
-			this.$store.commit("setProducts", this.categoriedList)
 		},
 	},
 }
