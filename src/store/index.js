@@ -41,8 +41,30 @@ const store = new Vuex.Store({
 		addSum(state, val) {
 			state.cart.sum += val
 		},
+		increaseProduct(state, val) {
+			state.cart.products.forEach((element) => {
+				if (element.id == val.id) {
+					element.amount++
+				}
+			})
+		},
+		decreaseProduct(state, val) {
+			state.cart.products.forEach((element) => {
+				if (element.id == val.id) {
+					element.amount--
+				}
+			})
+		},
+		resetCart(state) {
+			state.cart.products = []
+			state.cart.sum = 0
+		},
 	},
-	getters: {},
+	getters: {
+		getCart(state) {
+			return state.cart.products
+		},
+	},
 	actions: {},
 	modules: {},
 	plugins: [createPersistedState()],

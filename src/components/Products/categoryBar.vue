@@ -1,7 +1,7 @@
 <template>
 	<div class="d-flex justify-center">
 		<v-card class="mt-3">
-			<v-tabs v-model="tab" background-color="red lighten" dark>
+			<v-tabs v-model="tab" background-color="#ff0000" dark>
 				<v-tab
 					v-for="category in categories"
 					:key="category"

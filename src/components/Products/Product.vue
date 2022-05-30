@@ -12,7 +12,6 @@
 				style="height: 360px"
 				hover
 			>
-				<!-- <div v-if="discountList.includes(product.name)" style="background : red ; z-index:1;height: 25px; width: inherit;color : white;" >İNDİRİM</div> -->
 				<img
 					v-if="discountList.includes(product.name)"
 					src="@/assets/Products/indirim.png"

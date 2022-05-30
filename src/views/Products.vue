@@ -7,37 +7,39 @@
 			</div>
 
 			<product
-				class="col-12"
+				class="border col-12"
 				:category="category"
 				@cartList="transport($event)"
 			></product>
 		</div>
-
-		<!-- <cart class="col-3" :cart="cart"></cart> -->
 	</div>
 </template>
 
 <script>
 import Product from "../components/Products/Product.vue"
-// import Cart from "../components/Products/Cart"
 import CategoryBar from "../components/Products/categoryBar.vue"
 import Search from "../components/Search.vue"
 export default {
 	data() {
-		return {
-			cart: [],
-		}
+		return {}
 	},
 	components: {
-		// Cart,
 		Product,
 		CategoryBar,
 		Search,
 	},
-	methods: {
-		transport(element) {
-			this.cart = element
-		},
-	},
+	methods: {},
 }
 </script>
+
+<style scoped>
+.v-sheet.v-card:not(.v-sheet--outlined) {
+	box-shadow: none;
+}
+
+.border {
+	margin-top: -5px;
+	border: 5px solid #ff0000;
+	border-radius: 20px;
+}
+</style>

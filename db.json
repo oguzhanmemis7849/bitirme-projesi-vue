@@ -41,139 +41,162 @@
 			"src": "bulgur.png",
 			"name": "Bulgur",
 			"price": 15,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 0
 		},
 		{
 			"src": "fanta.png",
 			"name": "Fanta",
 			"price": 25,
-			"category": "icecek"
+			"category": "icecek",
+			"id": 1
 		},
 		{
 			"src": "aycicek-yagi.png",
 			"name": "Ayçiçek Yağı 5L",
 			"price": 125,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 2
 		},
 		{
 			"src": "barbunya.png",
 			"name": "Barbunya",
 			"price": 45,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 3
 		},
 		{
 			"src": "camasir-deterjani.png",
 			"name": "Çamaşır Deterjanı",
 			"price": 85,
-			"category": "temizlik"
+			"category": "temizlik",
+			"id": 4
 		},
 		{
 			"src": "coca-cola.png",
 			"name": "Coca Cola",
 			"price": 15,
-			"category": "icecek"
+			"category": "icecek",
+			"id": 5
 		},
 		{
 			"src": "damacana-su.png",
 			"name": "Su 19Lt",
 			"price": 32,
-			"category": "icecek"
+			"category": "icecek",
+			"id": 6
 		},
 		{
 			"src": "esmer-un.png",
 			"name": "Esmer Un",
 			"price": 20,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 7
 		},
 		{
 			"src": "kirmizi-mercimek.png",
 			"name": "Kırmızı Mercimek",
 			"price": 30,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 8
 		},
 		{
 			"src": "kup-seker.png",
 			"name": "Küp Şeker",
 			"price": 23,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 9
 		},
 		{
 			"src": "lays.png",
 			"name": "Lays Büyük Boy",
 			"price": 16,
-			"category": "atistirmalik"
+			"category": "atistirmalik",
+			"id": 10
 		},
 		{
 			"src": "misir-yagi.png",
 			"name": "Mısır Yağı",
 			"price": 119,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 11
 		},
 		{
 			"src": "pirinc.png",
 			"name": "Pirinç",
 			"price": 23,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 12
 		},
 		{
 			"src": "pringles.png",
 			"name": "Pringles",
 			"price": 24,
-			"category": "atistirmalik"
+			"category": "atistirmalik",
+			"id": 13
 		},
 		{
 			"src": "ruffles.png",
 			"name": "Ruffles",
 			"price": 19,
-			"category": "atistirmalik"
+			"category": "atistirmalik",
+			"id": 14
 		},
 		{
 			"src": "sivi-sabun.png",
 			"name": "Sıvı Sabun",
 			"price": 24,
-			"category": "temizlik"
+			"category": "temizlik",
+			"id": 15
 		},
 		{
 			"src": "sprite.png",
 			"name": "Sprite",
 			"price": 11,
-			"category": "icecek"
+			"category": "icecek",
+			"id": 16
 		},
 		{
 			"src": "su-5lt.png",
 			"name": "5 Lt Su",
 			"price": 6,
-			"category": "icecek"
+			"category": "icecek",
+			"id": 17
 		},
 		{
 			"src": "tereyagi.png",
 			"name": "Tereyağı",
 			"price": 36,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 18
 		},
 		{
 			"src": "toz-seker.png",
 			"name": "Toz Şeker",
 			"price": 20,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 19
 		},
 		{
 			"src": "un.png",
 			"name": "Un",
 			"price": 18,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 20
 		},
 		{
 			"src": "yesil-mercimek.png",
 			"name": "Yeşil Mercimek",
 			"price": 12,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 21
 		},
 		{
 			"src": "zeytin-yagi.png",
 			"name": "Zeytin Yağı",
 			"price": 119,
-			"category": "temel-gida"
+			"category": "temel-gida",
+			"id": 22
 		}
 	],
 	"cart": []
