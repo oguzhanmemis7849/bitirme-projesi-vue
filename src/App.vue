@@ -19,7 +19,7 @@
 				/>
 			</div>
 			<v-spacer></v-spacer>
-			<search v-if="$route.path == '/products'" />
+			<!-- <search v-if="$route.path == '/products'" /> -->
 			<v-spacer></v-spacer>
 			<div class="d-flex justify-center align-center">
 				<v-btn x-large text @click="routeHome">Ana Sayfa</v-btn>
@@ -27,7 +27,6 @@
 				<v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
 				<user-info></user-info>
 			</div>
-
 		</v-app-bar>
 		<v-main>
 			<router-view />
@@ -37,13 +36,13 @@
 </template>
 
 <script>
-import Search from "./components/Search.vue"
-import UserInfo from './components/userInfo.vue'
+// import Search from "./components/Search.vue"
+import UserInfo from "./components/userInfo.vue"
 
 export default {
 	name: "App",
 	components: {
-		Search,
+		// Search,
 		UserInfo,
 	},
 	data: () => ({
