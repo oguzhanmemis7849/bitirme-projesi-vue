@@ -6,6 +6,7 @@ import Products from "../views/Products.vue"
 import About from "../views/About.vue"
 import Payment from "../views/Payment.vue"
 import MyProfile from "../views/MyProfile.vue"
+import ShoppingCart from "../views/ShoppingCart.vue"
 import store from "../store"
 
 Vue.use(VueRouter)
@@ -41,6 +42,11 @@ const routes = [
 		name: "Payment",
 		component: Payment,
 	},
+	{
+		path: "/shoppingCart",
+		name: "shoppingCart",
+		component: ShoppingCart,
+	},
 ]
 
 const router = new VueRouter({
@@ -50,7 +56,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, _, next) => {
-	const authRequiredRoutes = ["Home", "About", "Products"]
+	const authRequiredRoutes = ["Home", "About", "Products","MyProfile","Payment","shoppingCart"]
 	const authNotRequiredRoutes = ["Login"]
 	const _isAuthenticated = store.state.isAuthenticated
 

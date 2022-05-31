@@ -35,6 +35,7 @@ export default {
 				result.data.forEach((element) => {
 					if (
 						element.name
+						
 							.toLowerCase()
 							.includes(this.searchProducts.toLowerCase())
 					) {
