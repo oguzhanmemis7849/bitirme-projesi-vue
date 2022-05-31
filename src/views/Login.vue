@@ -223,7 +223,8 @@ export default {
         password: "",
         phoneNumber:"",
         address:"",
-        birthday:""
+        birthday:"",
+        profilePicture:""
       },
 
       loginPassword: "",
@@ -258,7 +259,6 @@ export default {
           .then((result) => {
             if (result?.data?.length > 0) {
               this.$store.commit("setUser", result?.data[0]);
-              this.$store.commit("deletePassword");
               this.progressBar = true;
               setTimeout(() => {
                 this.$router.push("/");
