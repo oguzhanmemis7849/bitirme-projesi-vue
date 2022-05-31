@@ -20,7 +20,6 @@
 						height="50"
 						:src="require('@/assets/Products/' + product.src)"
 						:alt="product.name"
-						S
 					/>
 					<v-spacer></v-spacer>
 					<div>
@@ -56,13 +55,13 @@ import { mapGetters, mapState } from "vuex"
 export default {
 	name: "Cart",
 	data() {
-		return {}
+		return {
+		}
 	},
 	methods: {
 		resetCart() {
 			this.$store.commit("resetCart")
 		},
-
 		increaseProduct(product) {
 			this.cart.sum += product.price
 			this.$store.commit("increaseProduct", product)
