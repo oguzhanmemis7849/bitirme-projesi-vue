@@ -11,8 +11,15 @@
 					<v-btn v-if="choosenFile != null" @click="saveProfile"
 						>Güncelle</v-btn
 					>
+					<!-- <v-file-input
+						v-model="choosenFile"
+						@change="changeTheProfile"
+						class="editPhoto"
+						prepend-icon="mdi-pencil"
+						hide-input
+						accept="image/*"
+					></v-file-input> -->
 					<file-reader
-          
 						accept="image/*"
 						output="data"
 						@reader-load="changeTheProfile"
@@ -73,7 +80,7 @@
 </template>
 
 <script>
-import FileReader from "vue-filereader"
+import FileReader from "@/components/FileReader.vue";
 export default {
 	name: "myProfile",
 	components: {
@@ -122,7 +129,7 @@ export default {
 		changeTheProfile(item) {
 			this.userData.profilePicture = item.data
 			this.$store.commit("setPic", item.data)
-			this.$http.put(`/users/3`, this.userData)
+			this.$http.put(`/users/${this.userData.id}`, this.userData)
 
 			function Base64ToImage(base64img, callback) {
 				var img = new Image()
