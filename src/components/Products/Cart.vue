@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center" >
     <v-menu offset-y :close-on-content-click="closeOnContentClick">
       <template #activator="{ on: onMenu }">
         <v-tooltip bottom color="#ff0000">
@@ -14,7 +14,7 @@
           <span>Sepetiniz</span>
         </v-tooltip>
       </template>
-      <v-list>
+      <v-list class="list">
         <v-list-item
           v-for="product in getCart"
           :key="product"
@@ -45,7 +45,7 @@
 		<v-list-item class="totalPrice" v-if="cart.products.length != 0"
           ><strong>Toplam : {{ cart.sum }} TL</strong></v-list-item
         >
-		<v-list-item v-if="cart.products.length != 0" @click="goToPayment" class="d-flex justify-center"><v-btn @click="goToPayment" color="#ff0000" class="white--text">Ödemeye Geç</v-btn></v-list-item>
+		<v-list-item v-if="cart.products.length != 0" @click="goToPayment" class="d-flex justify-center"><v-btn @click="goToPayment" color="#ff0000" class="white--text">Hemen Öde</v-btn></v-list-item>
 		<v-list-item v-if="cart.products.length != 0" @click="goToShoppingCart" class="d-flex justify-center"><v-btn @click="goToShoppingCart" color="#ff0000" class="white--text">Sepete Git</v-btn></v-list-item>
         
         <v-list-item class="d-flex justify-center" v-if="cart.products.length != 0" @click="resetCart">
@@ -121,5 +121,9 @@ export default {
 .products{
 	/* border: 1px  solid red; */
 	border-bottom: 3px solid red;
+}
+.list{
+  max-height: 500px;
+  overflow: auto;
 }
 </style>
