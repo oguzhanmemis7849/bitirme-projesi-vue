@@ -39,14 +39,14 @@
           <div class="d-flex">
             <v-btn x-small @click="increaseProduct(product)"><v-icon small>mdi-plus-thick</v-icon></v-btn>
             <div class="mx-1"><strong>{{ product.amount }}</strong></div>
-            <v-btn x-small @click="decreaseProduct(product)"><v-icon small>mdi-minus-thick</v-icon></v-btn>
+            <v-btn x-small @click="decreaseProduct(product)"><v-icon v-if="product.amount != 1" small>mdi-minus-thick</v-icon> <v-icon v-else small>mdi-delete</v-icon></v-btn>
           </div>
         </v-list-item>
 		<v-list-item class="totalPrice" v-if="cart.products.length != 0"
           ><strong>Toplam : {{ cart.sum }} TL</strong></v-list-item
         >
-		<v-list-item @click="goToPayment" class="d-flex justify-center"><v-btn @click="goToPayment" color="#ff0000" class="white--text">Ödemeye Geç</v-btn></v-list-item>
-		<v-list-item @click="goToShoppingCart" class="d-flex justify-center"><v-btn @click="goToShoppingCart" color="#ff0000" class="white--text">Sepete Git</v-btn></v-list-item>
+		<v-list-item v-if="cart.products.length != 0" @click="goToPayment" class="d-flex justify-center"><v-btn @click="goToPayment" color="#ff0000" class="white--text">Ödemeye Geç</v-btn></v-list-item>
+		<v-list-item v-if="cart.products.length != 0" @click="goToShoppingCart" class="d-flex justify-center"><v-btn @click="goToShoppingCart" color="#ff0000" class="white--text">Sepete Git</v-btn></v-list-item>
         
         <v-list-item class="d-flex justify-center" v-if="cart.products.length != 0" @click="resetCart">
 			<v-tooltip bottom color="#ff0000" >
@@ -57,7 +57,7 @@
 			</v-tooltip>
           </v-list-item
         >
-        <v-list-item v-else> Sepetiniz boş</v-list-item>
+        <v-list-item v-else><strong>Sepetiniz boş</strong></v-list-item>
       </v-list>
     </v-menu>
   </div>

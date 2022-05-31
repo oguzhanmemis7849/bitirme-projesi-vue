@@ -40,10 +40,11 @@
 					><strong>{{ product.price }} TL</strong></v-card-text
 				>
 				<v-card-actions>
-					<v-btn color="error" @click="addCart(product)"> Sepete Ekle!</v-btn>
+					<v-btn color="error" @click="addCart(product);"> Sepete Ekle!</v-btn>
 				</v-card-actions>
 			</v-card>
 		</v-row>
+		<v-snackbar :timeout="timeout" color="#ff0000" v-model="snackbar"><strong>Bu ürünü sepetinize daha önce eklediniz. "Sepetiniz"e giderek ürün miktarını değiştirebilirsiniz.</strong></v-snackbar>
 	</v-container>
 </template>
 
@@ -53,6 +54,8 @@ export default {
 	data() {
 		return {
 			discountList: [],
+			snackbar: false,
+			timeout: 4000,
 		}
 	},
 	mounted() {
@@ -76,11 +79,13 @@ export default {
 					.includes(product.name)
 			) {
 				product.amount = 1
-				// this.cart.products.push(product)
 				sum = product.price * product.amount
 				this.$store.commit("addToCart", product)
 				this.$store.commit("addSum", sum)
-			} else console.log("else girdik")
+
+			} else{
+				this.snackbar = true
+			}
 		},
 	},
 }
