@@ -20,6 +20,7 @@ import Product from "../components/Products/Product.vue"
 import CategoryBar from "../components/Products/categoryBar.vue"
 import Search from "../components/Search.vue"
 export default {
+	
 	data() {
 		return {}
 	},
