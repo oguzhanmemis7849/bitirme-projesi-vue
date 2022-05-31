@@ -1,6 +1,6 @@
 <template>
 	<div class="text-center">
-		<v-menu offset-y>
+		<v-menu offset-y :close-on-content-click="closeOnContentClick">
 			<template v-slot:activator="{ on, attrs }">
 				<v-btn v-bind="attrs" v-on="on" text x-large>
 					<v-icon color="red" large>mdi-cart-variant </v-icon>
@@ -56,17 +56,21 @@ export default {
 	name: "Cart",
 	data() {
 		return {
+			closeOnContentClick: true,
 		}
 	},
 	methods: {
 		resetCart() {
 			this.$store.commit("resetCart")
+			this.closeOnContentClick = true;
 		},
 		increaseProduct(product) {
+			this.closeOnContentClick = false;
 			this.cart.sum += product.price
 			this.$store.commit("increaseProduct", product)
 		},
 		decreaseProduct(product) {
+			this.closeOnContentClick = false;
 			this.cart.sum -= product.price
 			this.$store.commit("decreaseProduct", product)
 		},
