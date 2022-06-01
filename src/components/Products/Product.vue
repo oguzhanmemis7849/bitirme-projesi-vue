@@ -9,7 +9,7 @@
 				v-for="product in this.$store.state.filteredProducts"
 				:key="product"
 				class="ma-3 px-0 col-1 d-flex flex-column align-center"
-				style="height: 360px"
+				style="height: 360px; min-width: 190px"
 				hover
 			>
 				<img

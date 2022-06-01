@@ -199,7 +199,7 @@
 
 <script>
 import Card from "../components/Home/Card.vue";
-
+import CryptoJS from 'crypto-js'
 export default {
   components: { Card },
   data() {
@@ -254,8 +254,9 @@ export default {
     },
     validate() {
       if (this.$refs.loginForm.validate()) {
+        const password = CryptoJS.HmacSHA1(this.loginPassword, this.$store.getters._saltKey).toString();
         this.$http
-          .get(`/users?email=${this.loginEmail}&password=${this.loginPassword}`)
+          .get(`/users?email=${this.loginEmail}&password=${password}`)
           .then((result) => {
             if (result?.data?.length > 0) {
               this.$store.commit("setUser", result?.data[0]);
@@ -268,7 +269,9 @@ export default {
       }
     },
     registerValidate() {
+      const password = CryptoJS.HmacSHA1(this.userData.password , this.$store.getters._saltKey).toString();
       if (this.$refs.registerForm.validate()) {
+        this.userData.password = password
         this.$http
           .post("/users", { ...this.userData })
           .then((this.registerDialog = true));
@@ -287,6 +290,7 @@ export default {
         this.userData.password === this.verify || "Parolalar eşleşmiyor.";
     },
   },
+
 };
 </script>
 
