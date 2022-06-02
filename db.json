@@ -67,6 +67,17 @@
       "birthday": "",
       "profilePicture": "",
       "id": 8
+    },
+    {
+      "email": "oguzhanmemis266@gmail.com",
+      "password": "6b7ac8f59ced45b6508c0db8333e8f0518abfbb8",
+      "firstName": "Oguzhan",
+      "lastName": "Memiş",
+      "phoneNumber": "",
+      "address": "",
+      "birthday": "",
+      "id": 9,
+      "profilePicture": ""
     }
   ],
   "products": [

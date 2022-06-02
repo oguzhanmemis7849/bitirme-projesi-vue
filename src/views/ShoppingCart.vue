@@ -43,6 +43,7 @@
 
 <script>
 export default {
+  name:"ShoppingCart",
   data() {
     return {
       discountList: [],
