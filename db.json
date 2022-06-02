@@ -67,17 +67,6 @@
       "birthday": "",
       "profilePicture": "",
       "id": 8
-    },
-    {
-      "email": "oguzhanmemis266@gmail.com",
-      "password": "6b7ac8f59ced45b6508c0db8333e8f0518abfbb8",
-      "firstName": "Oguzhan",
-      "lastName": "Memiş",
-      "phoneNumber": "",
-      "address": "",
-      "birthday": "",
-      "id": 9,
-      "profilePicture": ""
     }
   ],
   "products": [
@@ -248,7 +237,303 @@
       "price": 15,
       "category": "temizlik",
       "id": 23
-    }
+    },
+	{
+		"src": "dis-fircasi.jpg",
+		"name": "Diş Fırçası",
+		"price": 12,
+		"category": "temizlik",
+		"id": 24
+	  },
+	  {
+		"src": "kati-sabun.jpg",
+		"name": "El Sabunu",
+		"price": 20,
+		"category": "temizlik",
+		"id": 25
+	  },
+	  {
+		"src": "banyo-jileti.jpg",
+		"name": "Banyo Jileti",
+		"price": 8,
+		"category": "temizlik",
+		"id": 26
+	  },
+	  {
+		"src": "mutfak-havlusu.jpg",
+		"name": "Mutfak Havlusu",
+		"price": 40,
+		"category": "temizlik",
+		"id": 27
+	  },
+	  {
+		"src": "sac-kremi.jpg",
+		"name": "Saç Kremi",
+		"price": 32,
+		"category": "temizlik",
+		"id": 28
+	  },
+	  {
+		"src": "sampuan.png",
+		"name": "Şampuan",
+		"price": 35,
+		"category": "temizlik",
+		"id": 29
+	  },
+	  {
+		"src": "sir-agda.jpg",
+		"name": "Sir Ağda",
+		"price": 16,
+		"category": "temizlik",
+		"id": 30
+	  },
+	  {
+		"src": "uclu-jilet.jpg",
+		"name": "Jilet Seti",
+		"price": 149,
+		"category": "temizlik",
+		"id": 31
+	  },
+	  {
+		"src": "lavabo-acici.jpg",
+		"name": "Lavabo Açıcı",
+		"price": 19,
+		"category": "temizlik",
+		"id": 32
+	  },
+	  {
+		"src": "banyo-jileti.jpg",
+		"name": "Banyo Jileti",
+		"price": 12,
+		"category": "temizlik",
+		"id": 33
+	  },
+	  {
+		"src": "albeni-kek.jpg",
+		"name": "Albeni Kek",
+		"price": 4,
+		"category": "atistirmalik",
+		"id": 34
+	  },
+	  {
+		"src": "albeni.jpg",
+		"name": "Albeni",
+		"price": 3,
+		"category": "atistirmalik",
+		"id": 35
+	  },
+	  {
+		"src": "beyaz-cikolata.jpg",
+		"name": "Beyaz Çikolata",
+		"price": 15,
+		"category": "atistirmalik",
+		"id": 36
+	  },
+	  {
+		"src": "caramio.jpg",
+		"name": "Caramio",
+		"price": 3,
+		"category": "atistirmalik",
+		"id": 37
+	  },
+	  {
+		"src": "cikolatali-gofret.jpg",
+		"name": "Çikolatalı Gofret",
+		"price": 4,
+		"category": "atistirmalik",
+		"id": 38
+	  },
+	  {
+		"src": "cilekli-hosbes.jpg",
+		"name": "Çilekli Hoşbeş",
+		"price": 9,
+		"category": "atistirmalik",
+		"id": 39
+	  },
+	  {
+		"src": "crax.jpg",
+		"name": "Crax",
+		"price": 4,
+		"category": "atistirmalik",
+		"id": 40
+	  },
+	  {
+		"src": "cubuk-kraker.png",
+		"name": "Çubuk Kraker",
+		"price": 4,
+		"category": "atistirmalik",
+		"id": 41
+	  },
+	  {
+		"src": "doritos.jpg",
+		"name": "Doritos",
+		"price": 12,
+		"category": "atistirmalik",
+		"id": 42
+	  },
+	  {
+		"src": "findikli-hosbes.jpg",
+		"name": "Fındıklı Hoşbeş",
+		"price": 10,
+		"category": "atistirmalik",
+		"id": 43
+	  },
+	  {
+		"src": "fistikli-cikolata.jpg",
+		"name": "Fıstıklı Çikolata",
+		"price": 17,
+		"category": "atistirmalik",
+		"id": 44
+	  },
+	  {
+		"src": "halley-coklu.jpg",
+		"name": "Halley 10'lu Paket",
+		"price": 13,
+		"category": "atistirmalik",
+		"id": 45
+	  },
+	  {
+		"src": "halley-tekl.jpg",
+		"name": "Halley Tekli",
+		"price": 2,
+		"category": "atistirmalik",
+		"id": 46
+	  },
+	  {
+		"src": "haylayf.jpg",
+		"name": "Haylayf",
+		"price": 6,
+		"category": "atistirmalik",
+		"id": 47
+	  },
+	  {
+		"src": "hindistan-hosbes.jpg",
+		"name": "H.Cevizli Hoşbeş",
+		"price": 10,
+		"category": "atistirmalik",
+		"id": 48
+	  },
+	  {
+		"src": "susamli-kraker.jpg",
+		"name": "Susamlı Kraker",
+		"price": 6,
+		"category": "atistirmalik",
+		"id": 49
+	  },
+	  {
+		"src": "sutlu-cikolata.jpg",
+		"name": "Sütlü Çikolata",
+		"price": 9,
+		"category": "atistirmalik",
+		"id": 50
+	  },
+	  {
+		"src": "visneli-ms.jpg",
+		"name": "Vişne Meyvesuyu",
+		"price": 7,
+		"category": "icecek",
+		"id": 51
+	  },
+	  {
+		"src": "uludag-gazoz.jpg",
+		"name": "Uludağ Gazoz",
+		"price": 11,
+		"category": "icecek",
+		"id": 52
+	  },
+	  {
+		"src": "su15.jpg",
+		"name": "Su(1.5 LT)",
+		"price": 2,
+		"category": "icecek",
+		"id": 53
+	  },
+	  {
+		"src": "su-05.jpg",
+		"name": "Su(0.5 LT)",
+		"price": 1,
+		"category": "icecek",
+		"id": 54
+	  },
+	  {
+		"src": "soda.jpg",
+		"name": "Soda",
+		"price": 3,
+		"category": "icecek",
+		"id": 55
+	  },
+	  {
+		"src": "serbet.jpg",
+		"name": "Ramazan Şerbeti",
+		"price": 8,
+		"category": "icecek",
+		"id": 56
+	  },
+	  {
+		"src": "seftalili-ms.jpg",
+		"name": "Şeftali M.suyu",
+		"price": 11,
+		"category": "icecek",
+		"id": 57
+	  },
+	  {
+		"src": "portakalli-ms.jpg",
+		"name": "Portakal M.suyu",
+		"price": 11,
+		"category": "icecek",
+		"id": 58
+	  },
+	  {
+		"src": "muzlu-sut.jpg",
+		"name": "Muzlu Süt",
+		"price": 4,
+		"category": "icecek",
+		"id": 59
+	  },
+	  {
+		"src": "kefir.jpg",
+		"name": "Kefir",
+		"price": 15,
+		"category": "icecek",
+		"id": 60
+	  },
+	  {
+		"src": "kayisili-ms.jpg",
+		"name": "Kayısı Meyvesuyu",
+		"price": 11,
+		"category": "icecek",
+		"id": 61
+	  },
+	  {
+		"src": "karisik-ms.jpg",
+		"name": "Karışık M.suyu",
+		"price": 11,
+		"category": "icecek",
+		"id": 62
+	  },
+	  {
+		"src": "kakaolu-sut.jpg",
+		"name": "Kakaolu Süt",
+		"price": 11,
+		"category": "icecek",
+		"id": 63
+	  },
+	  {
+		"src": "enerji.jpg",
+		"name": "Enerji İçeceği",
+		"price": 14,
+		"category": "icecek",
+		"id": 64
+	  },
+	  {
+		"src": "cilekli-sut.jpg",
+		"name": "Çilekli Süt",
+		"price": 15,
+		"category": "icecek",
+		"id": 65
+	  }
+	  
+	  
   ],
   "cart": []
 }
