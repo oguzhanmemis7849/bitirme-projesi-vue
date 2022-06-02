@@ -48,7 +48,7 @@
             >Değişikliklerinizi kaydetmeyi unutmayınız !
           </v-snackbar>
         </v-col>
-        <v-col cols="12" lg="4" md="6" sm="12" class="mt-10 pa-16">
+        <v-col cols="12" lg="4" md="6" sm="12" class="mt-10 pl-16 pr-16">
           <v-form
             ref="form"
             v-on:submit.prevent
@@ -89,7 +89,9 @@
             </v-btn>
           </v-form>
         </v-col>
-        <v-col cols="12" lg="4" md="12" sm="12" class="mt-10 pa-16">Kart Bilgileri Gelecek</v-col>
+        <v-col cols="12" lg="4" md="12" sm="12" class="mt-10 pl-16 pr-16">
+			<PaymentInfo/>
+		</v-col>
       </v-row>
     </v-container>
   </div>
@@ -97,10 +99,12 @@
 
 <script>
 import FileReader from "@/components/FileReader.vue";
+import PaymentInfo from "@/components/MyProfile/PaymentInfo.vue";
 export default {
   name: "myProfile",
   components: {
     FileReader,
+	PaymentInfo
   },
   data() {
     return {
