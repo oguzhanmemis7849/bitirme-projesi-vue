@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {
+		saltKey : "tuzseverim1907",
 		user: null,
 		isAuthenticated: false,
 		discountProducts: [],
@@ -70,6 +71,7 @@ const store = new Vuex.Store({
 		getCart(state) {
 			return state.cart.products
 		},
+		_saltKey: state => state.saltKey
 	},
 	actions: {},
 	modules: {},

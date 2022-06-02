@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: "/myProfile",
-    name: "myProfile",
+    name: "MyProfile",
     component: MyProfile,
   },
   {
@@ -44,7 +44,7 @@ const routes = [
   },
   {
     path: "/shoppingCart",
-    name: "shoppingCart",
+    name: "ShoppingCart",
     component: ShoppingCart,
   },
 ];
@@ -62,7 +62,7 @@ router.beforeEach((to, _, next) => {
     "Products",
     "MyProfile",
     "Payment",
-    "shoppingCart",
+    "ShoppingCart",
   ];
   const authNotRequiredRoutes = ["Login"];
   const _isAuthenticated = store.state.isAuthenticated;
