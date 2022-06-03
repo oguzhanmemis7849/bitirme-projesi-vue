@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {
+		
 		saltKey : "tuzseverim1907",
 		user: null,
 		isAuthenticated: false,
@@ -67,14 +68,20 @@ const store = new Vuex.Store({
 			state.user.profilePicture = val
 		},
 		addCard(state, val){
-			state.user.creditCard = val
+			state.user.creditCard.push(val);
+		},
+		deleteCard(state, index){
+			state.user.creditCard.splice(index, 1)
 		}
 	},
 	getters: {
 		getCart(state) {
 			return state.cart.products
 		},
-		_saltKey: state => state.saltKey
+		_saltKey: state => state.saltKey,
+		getCardInfo(state){
+			return state.user.creditCard
+		}
 	},
 	actions: {},
 	modules: {},
