@@ -31,6 +31,7 @@
       <router-view />
     </v-main>
     <div>footer</div>
+
   </v-app>
 </template>
 
@@ -64,3 +65,6 @@ export default {
   },
 };
 </script>
+<style>
+  /* font eklenecek */
+</style>
