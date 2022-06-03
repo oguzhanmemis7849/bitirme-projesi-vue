@@ -75,6 +75,29 @@
         >
           Kartı Kaydet
         </v-btn>
+        <v-dialog v-model="dialog" width="500">
+          <v-card>
+            <v-card-title class="text-h5 grey lighten-2">
+              Kartınıza Bir İsim Verin
+            </v-card-title>
+
+            <v-container>
+              <v-text-field
+                v-model="valueFields.nameOfTheCard"
+                label="Kart İsmi"
+              ></v-text-field>
+            </v-container>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="success" text @click="saveTheCardWithName">
+                Kaydet
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </div>
     </v-form>
   </div>
@@ -89,6 +112,8 @@ export default {
   },
   data() {
     return {
+      // nameOfTheCard: "",
+      dialog: false,
       valid: true,
       timeToExpire: 9,
       cardNumberMaxLength: 19,
@@ -114,6 +139,7 @@ export default {
         cardMonth: "",
         cardYear: "",
         cardCvv: "",
+        nameOfTheCard: "",
       },
       labels: {
         cardName: "Ad Soyad",
@@ -134,6 +160,18 @@ export default {
         required: (value) => !!value || "Bu alan zorunludur.",
         // past:(value) => new Date().getMonth() < value || "Ay hatası",
       },
+      userData: {
+        email: this.$store.state.user.email,
+        password: this.$store.state.user.password,
+        firstName: this.$store.state.user.firstName,
+        lastName: this.$store.state.user.lastName,
+        phoneNumber: this.$store.state.user.phoneNumber,
+        address: this.$store.state.user.address,
+        birthday: this.$store.state.user.birthday,
+        id: this.$store.state.user.id,
+        profilePicture: this.$store.state.user.profilePicture,
+        creditCard: [],
+      },
     };
   },
   beforeMount() {
@@ -153,9 +191,19 @@ export default {
     saveTheCard() {
       this.$refs.form.validate();
       if (this.$refs.form.validate() == true) {
-        this.$store.commit("addCard", this.valueFields);
-        console.log(this.user);
+        this.dialog = true;
       }
+    },
+    saveTheCardWithName() {
+      this.$store.commit("addCard", this.valueFields);
+      this.$http
+        .put(`/users/${this.userData.id}`, this.userData)
+        .then((res) => {
+          this.userData = res;
+        });
+      console.log(this.user);
+      this.dialog = false;
+      window.location.reload();
     },
     changeNumber() {
       let realNumber = this.valueFields.cardNumber.replace(/ /gi, "");

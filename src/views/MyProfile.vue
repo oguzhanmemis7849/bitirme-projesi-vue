@@ -21,7 +21,10 @@
               <v-icon
                 class="icon"
                 v-show="isPencilActive == false"
-                @click="isPencilActive = true; isChange = true;"
+                @click="
+                  isPencilActive = true;
+                  isChange = true;
+                "
                 >mdi-pencil</v-icon
               >
             </div>
@@ -49,11 +52,7 @@
           </v-snackbar>
         </v-col>
         <v-col cols="12" lg="4" md="6" sm="12" class="mt-10 pl-16 pr-16">
-          <v-form
-          class="pa-16"
-            ref="form"
-            v-on:submit.prevent
-          >
+          <v-form class="pa-16" ref="form" v-on:submit.prevent>
             <v-text-field
               v-model="userData.firstName"
               type="text"
@@ -85,17 +84,29 @@
               type="date"
               label="Doğum Tarihi"
             ></v-text-field>
-            <v-btn v-if="isChange == true" type="submit" color="success" class="mr-4" @click="saveForm">
+            <v-btn
+              v-if="isChange == true"
+              type="submit"
+              color="success"
+              class="mr-4"
+              @click="saveForm"
+            >
               Fotoğrafı Kaydet
             </v-btn>
-            <v-btn v-else type="submit" color="success" class="mr-4" @click="saveForm">
+            <v-btn
+              v-else
+              type="submit"
+              color="success"
+              class="mr-4"
+              @click="saveForm"
+            >
               Bilgileri Kaydet
             </v-btn>
           </v-form>
         </v-col>
         <v-col cols="12" lg="4" md="12" sm="12" class="mt-10 pl-16 pr-16">
-			<PaymentInfo/>
-		</v-col>
+          <PaymentInfo />
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -108,7 +119,7 @@ export default {
   name: "myProfile",
   components: {
     FileReader,
-	PaymentInfo
+    PaymentInfo,
   },
   data() {
     return {
@@ -134,12 +145,12 @@ export default {
         birthday: this.$store.state.user.birthday,
         id: this.$store.state.user.id,
         profilePicture: this.$store.state.user.profilePicture,
-        creditCard: this.$store.state.user.creditCard
+        creditCard: [],
       },
     };
   },
-  mounted(){
-    if(this.$store.state.user.profilePicture == ''){
+  mounted() {
+    if (this.$store.state.user.profilePicture == "") {
       this.state.user.profilePicture = "";
     }
   },

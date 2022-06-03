@@ -4,7 +4,9 @@
       <h1 style="color: #ff0000">Kayıtlı Kartlarınız</h1>
     </div>
     <v-row>
-      <v-col lg="4" md="6" sm="12" v-for="i in 3" :key="i">
+      <!-- kaç tane kart varsa döndüreceğiz -->
+      <v-col lg="4" md="6" sm="12" v-for="(item, index) in getCardInfo.length" :key="index"> 
+        <!-- <v-col lg="4" md="6" sm="12"> -->
         <v-card class="mx-auto" max-width="400">
           <v-img
             class="white--text align-end"
@@ -12,20 +14,20 @@
             src="@/assets/card.jpg"
           >
             <div class="d-flex justify-center">
-              <v-card-title>1435 2356 4567 8546</v-card-title>
+              <v-card-title>{{ getCardInfo[index].cardNumber }}</v-card-title>
             </div>
 
             <div class="d-flex justify-space-between pr-4 pl-4">
-              <p>Oguzhan Memis</p>
+              <p>{{ getCardInfo[index].cardName }}</p>
               <v-spacer></v-spacer>
-              <p>12/</p>
-              <p>25</p>
+              <p>{{ getCardInfo[index].cardMonth }}/</p>
+              <p>{{ getCardInfo[index].cardYear }}</p>
             </div>
           </v-img>
 
           <v-card-actions class="card-actions">
-            <v-card-title class="pa-0"> Ziraat Kartım </v-card-title>
-            <v-btn color="#ff0000" text @click="deleteCard"> Kartı Sil </v-btn>
+            <v-card-title class="pa-0">{{ getCardInfo[index].nameOfTheCard }}</v-card-title>
+            <v-btn color="#ff0000" text @click="deleteCard(index)"> Kartı Sil </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -34,11 +36,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "MyCards",
+  computed: {
+    ...mapGetters(["getCardInfo"]),
+  },
   methods: {
-    deleteCard() {
-      console.log("kart silindi");
+    deleteCard(index) {
+      // console.log(index);
+      // console.log("kart silindi");
+      this.$store.commit("deleteCard", index)
     },
   },
 };
