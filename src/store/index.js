@@ -66,6 +66,9 @@ const store = new Vuex.Store({
 		setPic(state, val) {
 			state.user.profilePicture = val
 		},
+		addCard(state, val){
+			state.user.creditCard = val
+		}
 	},
 	getters: {
 		getCart(state) {
