@@ -100,6 +100,24 @@
         "cardYear": "",
         "cardCvv": ""
       }
+    },
+    {
+      "email": "burakbilikci@hotmail.com",
+      "password": "d4be90fea5ef58ee350414d0b93b0df5e10a94e4",
+      "firstName": "burak",
+      "lastName": "bilikci",
+      "phoneNumber": "",
+      "address": "",
+      "birthday": "",
+      "id": 12,
+      "profilePicture": "",
+      "creditCard": {
+        "cardName": "Tamer Burak Bilikci",
+        "cardNumber": "4845 1280 5486 8456",
+        "cardMonth": "07",
+        "cardYear": 2023,
+        "cardCvv": "031"
+      }
     }
   ],
   "products": [
