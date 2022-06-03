@@ -7,27 +7,27 @@
       <br />
       <div class="bg-about">
         <p>
-          Projemiz bir sanal market olmanın ilerisinde... Özellikle öğrencilere
-          bir gelir kapısı olmak üzere geliştirilmiş olan Moogi Projesi,
-          bisikletli kuryelerin evlere siparişleri teslim etmesi ile
+           <i>Projemiz bir sanal market olmanın ilerisinde... Özellikle <strong>öğrencilere
+          bir gelir kapısı</strong> olmak üzere geliştirilmiş olan Moogi projesi,
+          <strong>bisikletli kuryelerin</strong> evlere siparişleri teslim etmesi ile
           müşterilerimizin hizmetine sunuluyor. Bisikletlerimizi sokaklarda
-          konumlandırıyoruz ve kurye olmak isteyen herkes için kullanıma
-          sunuyoruz. İlk olarak kurye adaylarımız web sitemiz üzerinden kendi
-          profillerini oluşturmalı ve hizmet politakımızı onaylamalılar.
+          konumlandırıyoruz ve <strong>kurye olmak isteyen herkes</strong> için kullanıma
+          sunuyoruz. İlk olarak kurye adaylarımız <strong>web sitemiz üzerinden kendi
+          profillerini oluşturmalı</strong> ve hizmet politakımızı onaylamalılar.
           Ardından gelen siparişlerin takibine başlayabilirler. Web sitemizden
           gelen siparişleri marketlerden tamamlayıp müşterilerimize teslim eden
           kuryeler belirlenen tarifemiz üzerinden ücretlerini alacaktır. Oğuzhan
-          Memiş 2021 yılında Moogi projesinin temellerini oluşturmaya başlamış
+          Memiş, 2021 yılında <strong>Moogi projesinin</strong> temellerini oluşturmaya başlamış
           ve ardından projedeki açıklar ekibimiz tarafından çözümler geliştirmek
-          üzerine tartışılmıştır. Yazılım ekibimiz ve fikir sahibi Oğuzhan
-          Memiş'in üstün gayretleriyle hazırlanmış web sitemiz, bir çok marketle
-          anlaşma sağladıktan sonra işlevselliğini ve hizmet kapasitesini
-          geliştirmeyi amaçlamaktadır. Bu aşamadan sonrası mobil uygulamamızı
+          üzerine tartışılmıştır. Fikir sahibi <strong>Oğuzhan Memiş</strong>'in ve proje ekibimizin üyeleri
+          olan <strong>Umut Teker</strong>, <strong>Tolga Kuruçay</strong>, <strong>Burak Köroğlu</strong> ve 
+          <strong>Burak Bilikci</strong>'nin üstün gayretleriyle hazırlanmış web sitemiz, bir çok marketle
+          anlaşma sağladıktan sonra <strong>işlevselliğini ve hizmet kapasitesini
+          geliştirmeyi amaçlamaktadır</strong>. Bu aşamadan sonrası mobil uygulamamızı
           sunmaya dayanıyor. Mobil uygulamamız sayesinde her yerden ulaşılabilir
-          biz hizmetin temellerini atıyor olacağız. Ekibimiz yakın yaşlarda ve
-          dinamik prensiplerle çalışan insanlardan oluşmaktadır. Her zaman
-          gelişmeye ve fazlasını yapmaya gayret edeceğiz. Hem doğa dostu hem de
-          herkesin kolaylıkla para kazanabileceği Moogi sizlerle...
+          bir hizmetin temellerini atıyor olacağız. <strong> <br><br>Her zaman
+          gelişmeye ve fazlasını yapmaya gayret edeceğiz. <br>Hem doğa dostu hem de
+          herkesin kolaylıkla para kazanabileceği Moogi sizlerle...</strong></i>
         </p>
       </div>
       <br />
