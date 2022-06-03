@@ -132,6 +132,11 @@ export default {
       },
     };
   },
+  mounted(){
+    if(this.$store.state.user.profilePicture == ''){
+      this.state.user.profilePicture = "";
+    }
+  },
   methods: {
     saveForm() {
       console.log(this.userData.id);
