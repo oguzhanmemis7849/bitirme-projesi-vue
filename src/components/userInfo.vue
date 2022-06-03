@@ -17,6 +17,7 @@
           <strong>{{ userName }}</strong>
         </v-list-item>
         <v-list-item @click="myProfile">Profilim</v-list-item>
+        <v-list-item @click="myCards">Kayıtlı Kartlarım</v-list-item>
         <v-list-item @click="logOut">
           <v-icon>mdi-logout</v-icon> Çıkış Yap
         </v-list-item>
@@ -46,6 +47,9 @@ export default {
     myProfile() {
       this.$router.push("/myProfile");
     },
+    myCards(){
+      this.$router.push("/myCards")
+    }
   },
 };
 </script>

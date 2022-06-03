@@ -7,6 +7,7 @@ import About from "../views/About.vue";
 import Payment from "../views/Payment.vue";
 import MyProfile from "../views/MyProfile.vue";
 import ShoppingCart from "../views/ShoppingCart.vue";
+import MyCards from "../views/MyCards.vue";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -46,6 +47,11 @@ const routes = [
     path: "/shoppingCart",
     name: "ShoppingCart",
     component: ShoppingCart,
+  },
+  {
+    path: "/myCards",
+    name: "MyCards",
+    component: MyCards,
   },
 ];
 

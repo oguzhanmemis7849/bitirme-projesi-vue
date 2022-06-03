@@ -21,7 +21,7 @@
               <v-icon
                 class="icon"
                 v-show="isPencilActive == false"
-                @click="isPencilActive = true"
+                @click="isPencilActive = true; isChange = true;"
                 >mdi-pencil</v-icon
               >
             </div>
@@ -45,11 +45,12 @@
           <br />
           <h1>{{ this.userName }}</h1>
           <v-snackbar v-model="snackbar" color="primary"
-            >Değişikliklerinizi kaydetmeyi unutmayınız !
+            >Fotoğrafınızı kaydetmeyi unutmayınız !
           </v-snackbar>
         </v-col>
         <v-col cols="12" lg="4" md="6" sm="12" class="mt-10 pl-16 pr-16">
           <v-form
+          class="pa-16"
             ref="form"
             v-on:submit.prevent
           >
@@ -84,8 +85,11 @@
               type="date"
               label="Doğum Tarihi"
             ></v-text-field>
-            <v-btn type="submit" color="success" class="mr-4" @click="saveForm">
-              Kaydet
+            <v-btn v-if="isChange == true" type="submit" color="success" class="mr-4" @click="saveForm">
+              Fotoğrafı Kaydet
+            </v-btn>
+            <v-btn v-else type="submit" color="success" class="mr-4" @click="saveForm">
+              Bilgileri Kaydet
             </v-btn>
           </v-form>
         </v-col>
@@ -108,6 +112,7 @@ export default {
   },
   data() {
     return {
+      isChange: false,
       isPencilActive: false,
       snackbar: false,
       added: false,
@@ -129,6 +134,7 @@ export default {
         birthday: this.$store.state.user.birthday,
         id: this.$store.state.user.id,
         profilePicture: this.$store.state.user.profilePicture,
+        creditCard: this.$store.state.user.creditCard
       },
     };
   },
@@ -139,7 +145,6 @@ export default {
   },
   methods: {
     saveForm() {
-      console.log(this.userData.id);
       this.$http
         .put(`/users/${this.userData.id}`, this.userData)
         .then((res) => {
@@ -174,6 +179,7 @@ export default {
     removePhoto() {
       this.userData.profilePicture = "";
       this.$http.put(`/users/${this.userData.id}`, this.userData);
+      this.isChange = true;
     },
   },
 };
