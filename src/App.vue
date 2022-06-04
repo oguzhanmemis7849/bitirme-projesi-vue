@@ -30,9 +30,54 @@
     <v-main>
       <router-view />
     </v-main>
-    <div>footer</div>
+    
 
+    <!-- footer -->
+    <!-- -------------------------- -->
+    <v-footer
+    color="grey lighten-2"
+    padless
+  >
+    <v-row
+      justify="center"
+      no-gutters
+    >
+  
+      <div class="d-flex justify-center align-center" style="padding-top: 10px ">
+
+        <a style = "padding:10px" href="https://www.linkedin.com/" target="_blank">
+        <v-icon
+        large 
+        color="black"
+        >
+        mdi-linkedin</v-icon></a>
+
+        <a style = "padding:10px" href="https://www.instagram.com/moogiapp/" target="_blank">
+        <v-icon
+        large 
+        color="black"
+        >
+        mdi-instagram</v-icon></a>
+
+        <a style = "padding:10px" href="https://www.github.com" target="_blank">
+        <v-icon
+        large 
+        color="black"
+        >
+        mdi-github</v-icon></a>
+    
+      </div>
+      <v-col
+        class="py-4 text-center"
+        cols="12"
+      >
+      <i><strong>Moogi</strong></i>
+      </v-col>
+      
+    </v-row>
+  </v-footer>
   </v-app>
+  
 </template>
 
 <script>
@@ -66,5 +111,7 @@ export default {
 };
 </script>
 <style>
-  /* font eklenecek */
+  
+
+
 </style>
