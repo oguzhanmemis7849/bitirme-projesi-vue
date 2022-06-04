@@ -2,7 +2,7 @@
 	<div class="d-flex flex-column align-center" style="padding: 0 10% 0 10%">
 		<div>
 			<div class="d-flex flex-column align-center">
-				<search style="max-width: 600px" v-if="$route.path == '/products'" />
+				<search class="search" v-if="$route.path == '/products'" />
 				<category-bar></category-bar>
 			</div>
 
@@ -36,6 +36,9 @@ export default {
 <style scoped>
 .v-sheet.v-card:not(.v-sheet--outlined) {
 	box-shadow: none;
+}
+.search{
+	max-width: 600px;
 }
 
 .border {

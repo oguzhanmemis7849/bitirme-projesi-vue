@@ -2,13 +2,14 @@
   <div>
     <v-card class="text-center" color="grey lighten-2">
       <v-card-title
-        style="display: flex; justify-content: center; align-items: center"
+      class="cardTitle"
+       
         >{{ cardTitle }}</v-card-title
       >
       <v-container>
         <hr />
       </v-container>
-      <v-card-text>
+      <v-card-text class="cardText">
         {{ cardText }}
       </v-card-text>
     </v-card>
@@ -22,4 +23,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.cardTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: libel;
+  font-size: 30px !important;
+}
+.cardText{
+  font-family: lato;
+  font-size: 20px !important;
+}
+</style>

@@ -14,7 +14,7 @@
 
       <v-list>
         <v-list-item>
-          <strong>{{ userName }}</strong>
+          <strong >{{ userName }}</strong>
         </v-list-item>
         <v-list-item @click="myProfile">Profilim</v-list-item>
         <v-list-item @click="myCards">Kayıtlı Kartlarım</v-list-item>
@@ -54,4 +54,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+</style>

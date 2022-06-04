@@ -7,7 +7,7 @@
       <br />
       <div class="bg-about">
         <p>
-           <i>Projemiz bir sanal market olmanın ilerisinde... Özellikle <strong>öğrencilere
+          Projemiz bir sanal market olmanın ilerisinde... Özellikle <strong>öğrencilere
           bir gelir kapısı</strong> olmak üzere geliştirilmiş olan Moogi projesi,
           <strong>bisikletli kuryelerin</strong> evlere siparişleri teslim etmesi ile
           müşterilerimizin hizmetine sunuluyor. Bisikletlerimizi sokaklarda
@@ -27,7 +27,7 @@
           sunmaya dayanıyor. Mobil uygulamamız sayesinde her yerden ulaşılabilir
           bir hizmetin temellerini atıyor olacağız. <strong> <br><br>Her zaman
           gelişmeye ve fazlasını yapmaya gayret edeceğiz. <br>Hem doğa dostu hem de
-          herkesin kolaylıkla para kazanabileceği Moogi sizlerle...</strong></i>
+          herkesin kolaylıkla para kazanabileceği Moogi sizlerle...</strong>
         </p>
       </div>
       <br />
@@ -41,13 +41,13 @@
             <v-row>
               <v-col cols="3"></v-col>
               <v-col cols="6">
-                <v-card-title>Hazırlayanlar</v-card-title>
+                <v-card-title class="creators">Hazırlayanlar</v-card-title>
               </v-col>
               <v-col cols="3"></v-col>
               <v-col cols="4">
                 <v-card-text>
                   <v-row>
-                    <v-col cols="12">
+                    <v-col cols="12" class="creator">
                       Burak Bilikci
                       <v-spacer></v-spacer>
                       <a href="https://www.linkedin.com/in/burak-bilikci/"
@@ -66,7 +66,7 @@
               <v-col cols="4">
                 <v-card-text>
                   <v-row>
-                    <v-col cols="12">
+                    <v-col cols="12" class="creator">
                       Burak Köroğlu
                       <v-spacer></v-spacer>
                       <a
@@ -86,7 +86,7 @@
               <v-col cols="4">
                 <v-card-text>
                   <v-row>
-                    <v-col cols="12">
+                    <v-col cols="12" class="creator">
                       Oğuzhan Memiş
                       <v-spacer></v-spacer>
                       <a
@@ -106,7 +106,7 @@
               <v-col cols="6">
                 <v-card-text>
                   <v-row>
-                    <v-col cols="12">
+                    <v-col cols="12" class="creator">
                       Tolga Kuruçay
                       <v-spacer></v-spacer>
                       <a
@@ -126,7 +126,7 @@
               <v-col cols="6">
                 <v-card-text>
                   <v-row>
-                    <v-col cols="12">
+                    <v-col cols="12" class="creator">
                       Umut Teker
                       <v-spacer></v-spacer>
                       <a
@@ -162,15 +162,35 @@ export default {
 </script>
 
 <style scoped>
+.creator{
+  font-family: libel;
+  font-size: 23px !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+}
+.creators{
+  font-family: libel;
+  font-size: 35px !important;
+  letter-spacing: 0.5px;
+}
+.bg-about p{
+  font-family: libel;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+}
 .bg-header {
   width: 100%;
   background-color: #ff0000;
   border-radius: 20px;
   color: white;
   text-align: center;
-  font-size: 40px;
+  font-size: 45px;
   font-weight: 500;
   padding: 10px;
+  font-family: libel;
+  letter-spacing: 0.5px;
 }
 .bg-about {
   text-align: center;

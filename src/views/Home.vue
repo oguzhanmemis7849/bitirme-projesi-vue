@@ -85,6 +85,11 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  font-family: libel;
+  font-weight: 500;
+  font-size: 45px;
+}
 .discountProducts {
   text-align: center;
   background-color: #ff0000;

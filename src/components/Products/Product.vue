@@ -25,7 +25,7 @@
 					class="ml-0"
 				/>
 				<v-card-title>
-					<div style="font-size: 19px">
+					<div class="productTitle">
 						{{ product.name }}
 					</div>
 				</v-card-title>
@@ -101,5 +101,10 @@ export default {
 	position: absolute;
 	top: 250px;
 	color: red !important;
+}
+.productTitle{
+	font-family: libel;
+	font-size: 25px;
+	
 }
 </style>

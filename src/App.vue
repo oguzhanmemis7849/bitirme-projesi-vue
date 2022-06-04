@@ -20,9 +20,9 @@
       </div>
       <v-spacer></v-spacer>
       <div class="d-flex justify-center align-center">
-        <v-btn x-large text @click="routeHome">Ana Sayfa</v-btn>
-        <v-btn x-large text @click="routeProducts">Ürünler</v-btn>
-        <v-btn x-large text @click="routeAbout">Hakkımızda</v-btn>
+        <v-btn x-large text @click="routeHome" class="navbarBtn">Ana Sayfa</v-btn>
+        <v-btn x-large text @click="routeProducts" class="navbarBtn">Ürünler</v-btn>
+        <v-btn x-large text @click="routeAbout" class="navbarBtn">Hakkımızda</v-btn>
         <user-info class="ml-2 mr-2"></user-info>
         <cart></cart>
       </div>
@@ -30,10 +30,6 @@
     <v-main>
       <router-view />
     </v-main>
-    
-
-    <!-- footer -->
-    <!-- -------------------------- -->
     <v-footer
     color="grey lighten-2"
     padless
@@ -45,21 +41,21 @@
   
       <div class="d-flex justify-center align-center" style="padding-top: 10px ">
 
-        <a style = "padding:10px" href="https://www.linkedin.com/" target="_blank">
+        <a class="footerIcon" href="https://www.linkedin.com/" target="_blank">
         <v-icon
         large 
         color="black"
         >
         mdi-linkedin</v-icon></a>
 
-        <a style = "padding:10px" href="https://www.instagram.com/moogiapp/" target="_blank">
+        <a class="footerIcon" href="https://www.instagram.com/moogiapp/" target="_blank">
         <v-icon
         large 
         color="black"
         >
         mdi-instagram</v-icon></a>
 
-        <a style = "padding:10px" href="https://www.github.com" target="_blank">
+        <a class="footerIcon" href="https://www.github.com" target="_blank">
         <v-icon
         large 
         color="black"
@@ -71,7 +67,10 @@
         class="py-4 text-center"
         cols="12"
       >
-      <i><strong>Moogi</strong></i>
+      <!-- <p class="moogi">Moogi</p> -->
+      <div>
+        <v-img class="moogi" src="@/assets/Header/moogi-header-logo.png" alt="moogi"></v-img>
+      </div>
       </v-col>
       
     </v-row>
@@ -111,7 +110,30 @@ export default {
 };
 </script>
 <style>
-  
+@font-face {
+  font-family: "libel";
+  src: url("./assets/Fonts/libel-suit-rg.otf");
+}
 
+footer{
+  margin-top: 50px;
+}
+
+.moogi{
+  width: 150px;
+  margin: auto;
+}
+  
+.footerIcon{
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbarBtn{
+  font-family: libel;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  font-size: 27.5px !important;
+}
 
 </style>

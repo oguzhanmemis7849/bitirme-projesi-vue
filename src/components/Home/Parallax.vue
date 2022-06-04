@@ -34,6 +34,11 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  font-family:libel;
+  font-size: 45px;
+  font-weight: 500;
+}
 .textBackground{
     color: black;
     background-color: #ededed;
