@@ -9,6 +9,7 @@
     >
       <div class="d-flex align-center">
         <v-img
+          style="cursor: pointer"
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
           contain
@@ -20,9 +21,15 @@
       </div>
       <v-spacer></v-spacer>
       <div class="d-flex justify-center align-center">
-        <v-btn x-large text @click="routeHome" class="navbarBtn">Ana Sayfa</v-btn>
-        <v-btn x-large text @click="routeProducts" class="navbarBtn">Ürünler</v-btn>
-        <v-btn x-large text @click="routeAbout" class="navbarBtn">Hakkımızda</v-btn>
+        <v-btn x-large text @click="routeHome" class="navbarBtn"
+          >Ana Sayfa</v-btn
+        >
+        <v-btn x-large text @click="routeProducts" class="navbarBtn"
+          >Ürünler</v-btn
+        >
+        <v-btn x-large text @click="routeAbout" class="navbarBtn"
+          >Hakkımızda</v-btn
+        >
         <user-info class="ml-2 mr-2"></user-info>
         <cart></cart>
       </div>
@@ -30,53 +37,45 @@
     <v-main>
       <router-view />
     </v-main>
-    <v-footer
-    color="grey lighten-2"
-    padless
-  >
-    <v-row
-      justify="center"
-      no-gutters
-    >
-  
-      <div class="d-flex justify-center align-center" style="padding-top: 10px ">
-
-        <a class="footerIcon" href="https://www.linkedin.com/" target="_blank">
-        <v-icon
-        large 
-        color="black"
+    <v-footer color="grey lighten-2" padless>
+      <v-row justify="center" no-gutters>
+        <div
+          class="d-flex justify-center align-center"
+          style="padding-top: 10px"
         >
-        mdi-linkedin</v-icon></a>
+          <a
+            class="footerIcon"
+            href="https://www.linkedin.com/"
+            target="_blank"
+          >
+            <v-icon large color="black"> mdi-linkedin</v-icon></a
+          >
 
-        <a class="footerIcon" href="https://www.instagram.com/moogiapp/" target="_blank">
-        <v-icon
-        large 
-        color="black"
-        >
-        mdi-instagram</v-icon></a>
+          <a
+            class="footerIcon"
+            href="https://www.instagram.com/moogiapp/"
+            target="_blank"
+          >
+            <v-icon large color="black"> mdi-instagram</v-icon></a
+          >
 
-        <a class="footerIcon" href="https://www.github.com" target="_blank">
-        <v-icon
-        large 
-        color="black"
-        >
-        mdi-github</v-icon></a>
-    
-      </div>
-      <v-col
-        class="py-4 text-center"
-        cols="12"
-      >
-      <!-- <p class="moogi">Moogi</p> -->
-      <div>
-        <v-img class="moogi" src="@/assets/Header/moogi-header-logo.png" alt="moogi"></v-img>
-      </div>
-      </v-col>
-      
-    </v-row>
-  </v-footer>
+          <a class="footerIcon" href="https://www.github.com" target="_blank">
+            <v-icon large color="black"> mdi-github</v-icon></a
+          >
+        </div>
+        <v-col class="py-4 text-center" cols="12">
+          <!-- <p class="moogi">Moogi</p> -->
+          <div>
+            <v-img
+              class="moogi"
+              src="@/assets/Header/moogi-header-logo.png"
+              alt="moogi"
+            ></v-img>
+          </div>
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
-  
 </template>
 
 <script>
@@ -115,25 +114,24 @@ export default {
   src: url("./assets/Fonts/libel-suit-rg.otf");
 }
 
-footer{
+footer {
   margin-top: 50px;
 }
 
-.moogi{
+.moogi {
   width: 150px;
   margin: auto;
 }
-  
-.footerIcon{
+
+.footerIcon {
   padding: 10px;
   text-decoration: none;
 }
 
-.navbarBtn{
+.navbarBtn {
   font-family: libel;
   letter-spacing: 0.5px;
   text-transform: capitalize;
   font-size: 27.5px !important;
 }
-
 </style>
