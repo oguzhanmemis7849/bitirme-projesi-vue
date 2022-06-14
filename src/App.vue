@@ -96,6 +96,7 @@ export default {
     ],
   }),
   methods: {
+    
     routeHome() {
       this.$router.push("/");
     },
@@ -127,6 +128,7 @@ footer {
   padding: 10px;
   text-decoration: none;
 }
+
 
 .navbarBtn {
   font-family: libel;
