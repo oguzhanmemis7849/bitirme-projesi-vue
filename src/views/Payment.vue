@@ -117,4 +117,12 @@ export default {
   min-height: 700px;
   padding: 25px;
 }
+h1{
+  font-family: Libel;
+  font-size:40px
+}
+h2{
+  font-family: Libel;
+  font-size:30px
+}
 </style>
