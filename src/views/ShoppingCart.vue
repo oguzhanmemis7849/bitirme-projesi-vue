@@ -3,7 +3,7 @@
     <v-container>
       <v-row justify="center">
         <v-card
-          v-for="product in this.$store.state.cart.products"
+          v-for="product in cart.products"
           :key="product"
           class="ma-3 px-0 col-1 d-flex flex-column align-center"
           style="height: 300px"
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name:"ShoppingCart",
   data() {
@@ -49,13 +50,19 @@ export default {
       discountList: [],
     };
   },
+  computed:{
+    ...mapState([
+      'cart',
+      'discountProducts',
+    ]),
+  },
   updated(){
-    if(this.$store.state.cart.products.length == 0){
+    if(this.cart.products.length == 0){
       this.$router.push("/products")
     }
   },
   mounted() {
-    this.discountList = this.$store.state.discountProducts.map((item) => {
+    this.discountList = this.discountProducts.map((item) => {
       return item.name;
     });
   },

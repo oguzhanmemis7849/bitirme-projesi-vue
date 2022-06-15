@@ -4,11 +4,11 @@
     <h1 class="red--text">Ödeme</h1>
     <div class="d-flex">
       <h2 class="red--text">Toplam Tutar:</h2>
-      <h2>{{ $store.state.cart.sum }} TL</h2>
+      <h2>{{ cart.sum }} TL</h2>
     </div>
     <div class="d-flex">
       <h2 class="red--text">Teslimat adresi:</h2>
-      <h2>{{ $store.state.user.address }}</h2>
+      <h2>{{ user.address }}</h2>
     </div>
     <v-btn class="primary" @click="goToMyProfile">Adresi güncelle</v-btn>
     <h2 class="red--text">Kart Seçiniz</h2>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   data() {
     return {
@@ -63,6 +64,12 @@ export default {
       }),
     };
   },
+  computed:{
+    ...mapState([
+      'cart',
+      'user',
+    ]),
+  },
   mounted() {
     this.valid = false;
   },
@@ -71,7 +78,7 @@ export default {
       this.$router.push("/myProfile");
     },
     pay() {
-      if(this.$store.state.cart.sum == 0 ){
+      if(this.cart.sum == 0 ){
         this.snackbar = true
       }
       else{

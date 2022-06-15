@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Card from "../components/Home/Card.vue";
 import Carousel from "../components/Home/Carousel.vue";
 import Parallax from "../components/Home/Parallax.vue";
@@ -69,8 +70,11 @@ export default {
         "Moogi, öğrencilerin bisikletli kurye olarak para kazandığı; kullanıcılarımızın da evlerine market alışverişlerini yaptığımız bir kuruluştur. Siparişleriniz seçtiğiniz en yakın marketlerden, bisikletli kuryelerimiz tarafından temin edilerek kapınıza temazsız bir şekilde bırakılır.",
     };
   },
+  computed:{
+    ...mapState(["Products"])
+  },
   mounted(){
-    this.mapProducts = this.$store.state.Products.map(item => {
+    this.mapProducts = this.Products.map(item => {
       return{
         name: item.name,
         price: item.price,

@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       style="padding: 0 10% 0 10%"
-      v-if="this.$store.state.isAuthenticated"
+      v-if="isAuthenticated"
       app
       color="grey lighten-2"
       height="100px"
@@ -81,6 +81,7 @@
 <script>
 import Cart from "./components/Products/Cart.vue";
 import UserInfo from "./components/userInfo.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -95,6 +96,11 @@ export default {
       ["mdi-clock-start", "Clock-in"],
     ],
   }),
+  computed: {
+    ...mapState([
+      "isAuthenticated",
+    ]),
+  },
   methods: {
     
     routeHome() {
