@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
 	props: ["category"],
 	data() {
@@ -57,6 +58,12 @@ export default {
 			snackbar: false,
 			timeout: 4000,
 		}
+	},
+	computed: {
+		...mapState([
+			'cart',
+			'discountProducts',
+		]),
 	},
 	mounted() {
 		this.$http.get("/products").then((result) => {
@@ -67,14 +74,14 @@ export default {
 			this.$store.commit("setProducts", result.data)
 			this.$store.commit("resetProducts", result.data)
 		})
-		this.discountList = this.$store.state.discountProducts.map((item) => {
+		this.discountList = this.discountProducts.map((item) => {
 			return item.name
 		})
 	},
 	methods: {
 		addCart(product, sum) {
 			if (
-				!this.$store.state.cart.products
+				!this.cart.products
 					.map((element) => element.name)
 					.includes(product.name)
 			) {

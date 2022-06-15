@@ -94,7 +94,6 @@ export default {
 		this.$router.push("/shoppingCart")
 	}
   },
-  mounted() {},
   computed: {
     ...mapState(["cart"]),
     ...mapGetters({ getCart: "getCart" }),
@@ -119,7 +118,6 @@ export default {
 	margin-left: 25px;
 }
 .products{
-	/* border: 1px  solid red; */
 	border-bottom: 3px solid red;
 }
 .list{

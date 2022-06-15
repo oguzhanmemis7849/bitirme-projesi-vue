@@ -105,7 +105,6 @@
 
 <script>
 import { VuePaycard } from "vue-paycard";
-import { mapState } from "vuex";
 export default {
   components: {
     VuePaycard,
@@ -176,9 +175,6 @@ export default {
   },
   beforeMount() {
     this.expirationDate();
-  },
-  computed: {
-    ...mapState(["user"]),
   },
   methods: {
     //kart son kullanma tarihi

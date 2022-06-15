@@ -2,10 +2,10 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="9">
-          <carousel :src1="src1" :src2="src2" />
+        <v-col cols="12" lg="9" md="12" sm="12" >
+          <carousel class="carousel" :src1="src1" :src2="src2" />
         </v-col>
-        <v-col cols="3">
+        <v-col cols="12" lg="3" md="12" sm="12" >
           <card :cardTitle="cardTitle" :cardText="cardText" />
         </v-col>
         <v-col cols="12">
@@ -14,11 +14,11 @@
         <v-col cols="12" class="discountProducts">
           <h1>İndirimli Ürünler</h1>
         </v-col>
-        <v-col cols="12" class="d-flex justify-space-around">
+        <v-col cols="12" class="products">
            <v-card
             v-for="product in discountProducts"
             :key="product"
-            class="ma-3 px-0 col-1 d-flex flex-column align-center"
+            class="card"
             style="height: 330px"
             hover
           >
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Card from "../components/Home/Card.vue";
 import Carousel from "../components/Home/Carousel.vue";
 import Parallax from "../components/Home/Parallax.vue";
@@ -69,8 +70,11 @@ export default {
         "Moogi, öğrencilerin bisikletli kurye olarak para kazandığı; kullanıcılarımızın da evlerine market alışverişlerini yaptığımız bir kuruluştur. Siparişleriniz seçtiğiniz en yakın marketlerden, bisikletli kuryelerimiz tarafından temin edilerek kapınıza temazsız bir şekilde bırakılır.",
     };
   },
+  computed:{
+    ...mapState(["Products"])
+  },
   mounted(){
-    this.mapProducts = this.$store.state.Products.map(item => {
+    this.mapProducts = this.Products.map(item => {
       return{
         name: item.name,
         price: item.price,
@@ -96,4 +100,34 @@ h1{
   border-radius: 25px;
   color: white;
 }
+.products{
+  display: flex;
+  justify-content: space-around;
+}
+.card{
+  max-width: 220px;
+  height: 300px;
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width:1264px){
+  h1 {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width:960px){
+  .products{
+    display: flex;
+    flex-direction: column;
+  }
+  .card{
+    margin: auto;
+    margin-top: 15px;
+  }
+}
+
 </style>
