@@ -44,8 +44,6 @@ export default {
   },
   methods: {
     deleteCard(index) {
-      // console.log(index);
-      // console.log("kart silindi");
       this.$store.commit("deleteCard", index)
     },
   },
