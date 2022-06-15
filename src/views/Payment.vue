@@ -105,7 +105,6 @@ export default {
   font-size: 20px;
 }
 .section {
-  min-height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
