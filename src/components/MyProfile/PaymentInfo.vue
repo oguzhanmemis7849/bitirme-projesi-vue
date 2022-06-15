@@ -201,7 +201,6 @@ export default {
         .then((res) => {
           this.userData = res;
         });
-      console.log(this.user);
       this.dialog = false;
       window.location.reload();
     },
