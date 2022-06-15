@@ -76,7 +76,6 @@ export default {
       }
       else{
         this.dialog = true;
-        console.log(this.dialog);
         setTimeout(() => {
           this.$store.commit("resetCart");
         this.$router.push("/");

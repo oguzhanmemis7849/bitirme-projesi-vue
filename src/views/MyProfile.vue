@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import FileReader from "@/components/FileReader.vue";
+import FileReader from "@/components/MyProfile/FileReader.vue";
 import PaymentInfo from "@/components/MyProfile/PaymentInfo.vue";
 export default {
   name: "myProfile",
@@ -160,10 +160,9 @@ export default {
         .put(`/users/${this.userData.id}`, this.userData)
         .then((res) => {
           this.userData = res;
-          // console.log("user:",this.$store.state.user)
         })
         .catch((err) => {
-          console.log(err);
+          alert(err);
         });
       this.$store.commit("setUser", this.userData);
       window.location.reload();
