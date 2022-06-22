@@ -14,7 +14,7 @@
 
       <v-list>
         <v-list-item>
-          <strong >{{ userName }}</strong>
+          <strong>{{ userName }}</strong>
         </v-list-item>
         <v-list-item @click="myProfile">Profilim</v-list-item>
         <v-list-item @click="myCards">Kayıtlı Kartlarım</v-list-item>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 export default {
   name: "userInfo",
   data() {
@@ -40,19 +42,23 @@ export default {
     };
   },
   methods: {
-    logOut() {
-      this.$store.commit("logOutUser");
-      this.$router.push("/login");
+    async logOut() {
+      try {
+        await signOut(auth);
+        this.$store.commit("logOutUser");
+        this.$router.push("/login");
+      } catch (e) {
+        console.log(e);
+      }
     },
     myProfile() {
       this.$router.push("/myProfile");
     },
-    myCards(){
-      this.$router.push("/myCards")
-    }
+    myCards() {
+      this.$router.push("/myCards");
+    },
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

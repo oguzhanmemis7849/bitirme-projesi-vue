@@ -4,7 +4,7 @@
       <v-dialog v-model="dialog" persistent max-width="600px" min-width="360px">
         <card :cardTitle="cardTitle" :cardText="cardText"></card>
         <!-- <v-img src="@/assets/Header/moogi-header-logo.png"></v-img> -->
-        <div :isLoggedPanelOpen="isLoggedPanelOpen">
+        <div>
           <v-tabs
             v-model="tab"
             show-arrows
@@ -14,7 +14,7 @@
             grow
           >
             <v-tabs-slider color="purple darken-4"></v-tabs-slider>
-            <v-tab v-for="i in tabs" :key="i">
+            <v-tab v-for="(i, index) in tabs" :key="index">
               <v-icon large>{{ i.icon }}</v-icon>
               <div class="caption py-1">{{ i.name }}</div>
             </v-tab>
@@ -33,7 +33,7 @@
                         <v-text-field
                           outlined
                           color="green"
-                          v-model="loginEmail"
+                          v-model="userLoginData.loginEmail"
                           :rules="loginEmailRules"
                           label="E-mail"
                           required
@@ -43,7 +43,7 @@
                         <v-text-field
                           outlined
                           color="green"
-                          v-model="loginPassword"
+                          v-model="userLoginData.loginPassword"
                           :append-icon="show1 ? 'eye' : 'eye-off'"
                           :rules="[rules.required, rules.min]"
                           :type="show1 ? 'text' : 'password'"
@@ -199,7 +199,16 @@
 
 <script>
 import Card from "../components/Home/Card.vue";
-import CryptoJS from 'crypto-js'
+import CryptoJS from "crypto-js";
+import { auth } from "../firebase";
+import { db } from "../firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
 export default {
   components: { Card },
   data() {
@@ -216,19 +225,23 @@ export default {
         { name: "Hesap Oluştur", icon: "mdi-account-outline" },
       ],
       valid: true,
+      currentUser: "",
       userData: {
         firstName: "",
         lastName: "",
         email: "",
         password: "",
-        phoneNumber:"",
-        address:"",
-        birthday:"",
-        profilePicture:""
+        phoneNumber: "",
+        address: "",
+        birthday: "",
+        profilePicture: "",
+        creditCard: [],
       },
 
-      loginPassword: "",
-      loginEmail: "",
+      userLoginData: {
+        loginPassword: "",
+        loginEmail: "",
+      },
 
       verify: "",
       loginEmailRules: [
@@ -252,29 +265,97 @@ export default {
       this.registerDialog = false;
       window.location.reload();
     },
-    validate() {
+    async validate() {
       if (this.$refs.loginForm.validate()) {
-        const password = CryptoJS.HmacSHA1(this.loginPassword, this.$store.getters._saltKey).toString();
-        this.$http
-          .get(`/users?email=${this.loginEmail}&password=${password}`)
-          .then((result) => {
-            if (result?.data?.length > 0) {
-              this.$store.commit("setUser", result?.data[0]);
-              this.progressBar = true;
-              setTimeout(() => {
-                this.$router.push("/");
-              }, 500);
-            } else alert("Böyle kayıtlı bir kullanıcı bulunmamaktadır!");
+        const password = CryptoJS.HmacSHA1(
+          this.userLoginData.loginPassword,
+          this.$store.getters._saltKey
+        ).toString();
+        this.userData.password = password;
+        this.userData.email = this.userLoginData.loginEmail;
+        console.log("şifreli:", this.userData.password);
+
+        try {
+          await signInWithEmailAndPassword(
+            auth,
+            this.userLoginData.loginEmail,
+            this.userLoginData.loginPassword
+          );
+          await onAuthStateChanged(auth, (user) => {
+            if (user) {
+              this.currentUser = user.uid;
+            }
           });
+          const docRef = doc(db, "users", this.currentUser);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            this.$store.commit("setUser", docSnap.data());
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+          console.log("user:", this.$store.state.user);
+          this.progressBar = true;
+          setTimeout(() => {
+            this.$router.push("/");
+          }, 500);
+        } catch (error) {
+          console.log(error);
+        }
+
+        // this.$http
+        //   .get(`/users?email=${this.loginEmail}&password=${this.loginPassword}`)
+        //   .then((result) => {
+        //     if (result?.data?.length > 0) {
+        //       this.$store.commit("setUser", result?.data[0]);
+        //       this.progressBar = true;
+        //       setTimeout(() => {
+        //         this.$router.push("/");
+        //       }, 500);
+        //     } else alert("Böyle kayıtlı bir kullanıcı bulunmamaktadır!");
+        //   });
       }
     },
-    registerValidate() {
-      const password = CryptoJS.HmacSHA1(this.userData.password , this.$store.getters._saltKey).toString();
+    async registerValidate() {
+      // const password = CryptoJS.HmacSHA1(this.userData.password , this.$store.getters._saltKey).toString();
       if (this.$refs.registerForm.validate()) {
-        this.userData.password = password
-        this.$http
-          .post("/users", { ...this.userData })
-          .then((this.registerDialog = true));
+        // this.userData.password = password
+
+        try {
+          await createUserWithEmailAndPassword(
+            auth,
+            this.userData.email,
+            this.userData.password
+          );
+          console.log(this.userData);
+        } catch (err) {
+          console.log(err);
+        }
+
+        await onAuthStateChanged(auth, (user) => {
+          if (user) {
+            this.currentUser = user.uid;
+          }
+        });
+
+        try {
+          await setDoc(doc(db, "users", this.currentUser), this.userData);
+        } catch (err) {
+          console.log(err);
+        }
+
+        // try {
+        //   const docRef = await addDoc(collection(db, "users"), this.userData);
+        //   console.log(docRef);
+        // } catch (e) {
+        //   console.log(e);
+        // }
+
+        // this.$http
+        //   .post("/users", { ...this.userData })
+        //   .then((this.registerDialog = true));
       }
     },
     reset() {
@@ -290,7 +371,6 @@ export default {
         this.userData.password === this.verify || "Parolalar eşleşmiyor.";
     },
   },
-
 };
 </script>
 

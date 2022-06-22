@@ -115,6 +115,10 @@
 <script>
 import FileReader from "@/components/MyProfile/FileReader.vue";
 import PaymentInfo from "@/components/MyProfile/PaymentInfo.vue";
+import { auth } from "../firebase";
+import { db } from "../firebase";
+import { doc, setDoc, updateDoc, deleteField } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 export default {
   name: "myProfile",
   components: {
@@ -123,6 +127,7 @@ export default {
   },
   data() {
     return {
+      currentUser: "",
       isChange: false,
       isPencilActive: false,
       snackbar: false,
@@ -143,28 +148,31 @@ export default {
         phoneNumber: this.$store.state.user.phoneNumber,
         address: this.$store.state.user.address,
         birthday: this.$store.state.user.birthday,
-        id: this.$store.state.user.id,
         profilePicture: this.$store.state.user.profilePicture,
-        creditCard: [],
+        // creditCard: [],
       },
     };
   },
   mounted() {
     if (this.$store.state.user.profilePicture == "") {
-      this.state.user.profilePicture = "";
+      this.$store.state.user.profilePicture = "";
     }
   },
   methods: {
-    saveForm() {
-      this.$http
-        .put(`/users/${this.userData.id}`, this.userData)
-        .then((res) => {
-          this.userData = res;
-        })
-        .catch((err) => {
-          alert(err);
-        });
-      this.$store.commit("setUser", this.userData);
+    async saveForm() {
+      await onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.currentUser = user.uid;
+        }
+      });
+      try {
+        await setDoc(doc(db, "users", this.currentUser), this.userData);
+        console.log(setDoc);
+        this.$store.commit("setUser", this.userData);
+      } catch (err) {
+        console.log(err);
+      }
+
       window.location.reload();
     },
 
@@ -186,8 +194,17 @@ export default {
       });
       this.snackbar = true;
     },
-    removePhoto() {
+    async removePhoto() {
       this.userData.profilePicture = "";
+      await onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.currentUser = user.uid;
+        }
+      });
+      const usersRef = doc(db, "users", this.currentUser);
+      await updateDoc(usersRef, {
+        profilePicture: deleteField(),
+      });
       this.$http.put(`/users/${this.userData.id}`, this.userData);
       this.isChange = true;
     },

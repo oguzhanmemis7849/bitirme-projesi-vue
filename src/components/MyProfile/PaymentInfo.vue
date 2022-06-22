@@ -31,7 +31,7 @@
 
       <div class="d-flex justif-center">
         <v-select
-          :rules="[rules.required, rules.past]"
+          :rules="[rules.required]"
           data-card-field
           id="v-card-month"
           v-model="valueFields.cardMonth"
@@ -98,6 +98,12 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+        <v-snackbar :timeout="timeout" color="primary" v-model="snackbar"
+          ><strong
+            >Kartınız başarıyla kaydedilmiştir. Kayıtlı kartlarım bölümünden
+            kontrol edebilir ve kartlarınızı düzenleyebilirsiniz.</strong
+          ></v-snackbar
+        >
       </div>
     </v-form>
   </div>
@@ -105,12 +111,18 @@
 
 <script>
 import { VuePaycard } from "vue-paycard";
+import { auth } from "@/firebase";
+import { db } from "@/firebase";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 export default {
   components: {
     VuePaycard,
   },
   data() {
     return {
+      snackbar: false,
+      timeout: 4000,
       // nameOfTheCard: "",
       dialog: false,
       valid: true,
@@ -159,6 +171,7 @@ export default {
         required: (value) => !!value || "Bu alan zorunludur.",
         // past:(value) => new Date().getMonth() < value || "Ay hatası",
       },
+      currentUser: "",
       userData: {
         email: this.$store.state.user.email,
         password: this.$store.state.user.password,
@@ -167,7 +180,6 @@ export default {
         phoneNumber: this.$store.state.user.phoneNumber,
         address: this.$store.state.user.address,
         birthday: this.$store.state.user.birthday,
-        id: this.$store.state.user.id,
         profilePicture: this.$store.state.user.profilePicture,
         creditCard: [],
       },
@@ -190,15 +202,56 @@ export default {
         this.dialog = true;
       }
     },
-    saveTheCardWithName() {
-      this.$store.commit("addCard", this.valueFields);
-      this.$http
-        .put(`/users/${this.userData.id}`, this.userData)
-        .then((res) => {
-          this.userData = res;
+    async saveTheCardWithName() {
+      await onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.currentUser = user.uid;
+        }
+      });
+      console.log(this.currentUser);
+
+      //users collection ın içine creditcards array pushlanması yapılacak
+
+      const docRef = doc(db, "users", this.currentUser);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        // this.$store.commit("setUser", docSnap.data());
+
+        // push json as an array
+        // let credit = [];
+        let credits = [];
+        let object = docSnap.data();
+        let objkeys = Object.keys(object);
+
+        objkeys.forEach((key) => {
+          if (key == "creditCard") {
+            if (object[key].length > 0) {
+              object[key].map((item) => credits.push(item));
+            }
+          }
         });
+        credits.push(this.valueFields);
+        this.$store.commit("addCard", this.valueFields);
+        console.log(credits);
+        await updateDoc(docRef, {
+          creditCard: credits,
+        });
+      } else {
+        console.log("No such document!");
+      }
+
+      // this.$http
+      //   .put(`/users/${this.userData.id}`, this.userData)
+      //   .then((res) => {
+      //     this.userData = res;
+      //   });
       this.dialog = false;
-      window.location.reload();
+      this.snackbar = true;
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
     },
     changeNumber() {
       let realNumber = this.valueFields.cardNumber.replace(/ /gi, "");

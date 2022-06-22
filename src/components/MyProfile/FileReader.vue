@@ -17,7 +17,7 @@ export default {
   props: {
     isPencilActive: {
       type: Boolean,
-      default: () => false
+      default: () => false,
     },
     accept: {
       type: String,
@@ -30,7 +30,14 @@ export default {
   },
   data() {
     return {
+      pencil: this.isPencilActive,
     };
+  },
+
+  watch: {
+    isPencilActive() {
+      this.pencil = this.isPencilActive;
+    },
   },
   methods: {
     handleOnChange(evt) {
@@ -64,7 +71,7 @@ export default {
         default:
           reader.readAsText(file);
       }
-      this.isPencilActive = false;
+      self.pencil = false;
     },
   },
 };

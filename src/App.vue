@@ -11,7 +11,7 @@
         <v-img
           style="cursor: pointer"
           alt="Moogi"
-          class="shrink mt-1 "
+          class="shrink mt-1"
           contain
           min-width="100"
           src="@/assets/Header/moogi-header-logo.png"
@@ -22,24 +22,24 @@
       <v-spacer></v-spacer>
       <div class="routers">
         <div class="d-flex justify-center align-center">
-        <v-btn x-large text @click="routeHome" class="navbarBtn"
-          >Ana Sayfa</v-btn
-        >
-        <v-btn x-large text @click="routeProducts" class="navbarBtn"
-          >Ürünler</v-btn
-        >
-        <v-btn x-large text @click="routeAbout" class="navbarBtn"
-          >Hakkımızda</v-btn
-        >
-        <user-info class="ml-2 mr-2"></user-info>
-        <cart></cart>
-      </div>
+          <v-btn x-large text @click="routeHome" class="navbarBtn"
+            >Ana Sayfa</v-btn
+          >
+          <v-btn x-large text @click="routeProducts" class="navbarBtn"
+            >Ürünler</v-btn
+          >
+          <v-btn x-large text @click="routeAbout" class="navbarBtn"
+            >Hakkımızda</v-btn
+          >
+          <user-info class="ml-2 mr-2"></user-info>
+          <cart></cart>
+        </div>
       </div>
       <div class="text-center menu">
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="#ff0000" dark v-bind="attrs" v-on="on">
-              <v-app-bar-nav-icon ></v-app-bar-nav-icon>
+              <v-app-bar-nav-icon></v-app-bar-nav-icon>
             </v-btn>
           </template>
           <v-list>
@@ -152,7 +152,6 @@ export default {
   font-family: "libel";
   src: url("./assets/Fonts/libel-suit-rg.otf");
 }
-
 #navbar {
   padding: 0 8% 0 8%;
 }
@@ -178,20 +177,19 @@ footer {
   font-size: 27.5px !important;
 }
 
-.menu{
-  display:none;
+.menu {
+  display: none;
 }
-.routers{
-  display:block;
+.routers {
+  display: block;
 }
 
-@media screen and (max-width:960px){
-  .menu{
+@media screen and (max-width: 960px) {
+  .menu {
     display: block;
   }
-  .routers{
-    display:none;
+  .routers {
+    display: none;
   }
 }
-
 </style>

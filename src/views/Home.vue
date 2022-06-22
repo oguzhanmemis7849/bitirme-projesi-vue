@@ -2,10 +2,10 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="12" lg="9" md="12" sm="12" >
+        <v-col cols="12" lg="9" md="12" sm="12">
           <carousel class="carousel" :src1="src1" :src2="src2" />
         </v-col>
-        <v-col cols="12" lg="3" md="12" sm="12" >
+        <v-col cols="12" lg="3" md="12" sm="12">
           <card :cardTitle="cardTitle" :cardText="cardText" />
         </v-col>
         <v-col cols="12">
@@ -15,7 +15,7 @@
           <h1>İndirimli Ürünler</h1>
         </v-col>
         <v-col cols="12" class="products">
-           <v-card
+          <v-card
             v-for="product in discountProducts"
             :key="product"
             class="card"
@@ -35,10 +35,16 @@
               </div>
             </v-card-title>
 
-            <v-card-text class="text-center text-decoration-line-through pa-0" style="color:red"
-              ><strong>{{ product.price + product.name.length }} TL</strong></v-card-text
+            <v-card-text
+              class="text-center text-decoration-line-through pa-0"
+              style="color: red"
+              ><strong
+                >{{ product.price + product.name.length }} TL</strong
+              ></v-card-text
             >
-            <v-card-text class="text-center pa-0"><strong>{{ product.price }} TL</strong></v-card-text>
+            <v-card-text class="text-center pa-0"
+              ><strong>{{ product.price }} TL</strong></v-card-text
+            >
           </v-card>
         </v-col>
       </v-row>
@@ -47,7 +53,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 import Card from "../components/Home/Card.vue";
 import Carousel from "../components/Home/Carousel.vue";
 import Parallax from "../components/Home/Parallax.vue";
@@ -70,26 +76,31 @@ export default {
         "Moogi, öğrencilerin bisikletli kurye olarak para kazandığı; kullanıcılarımızın da evlerine market alışverişlerini yaptığımız bir kuruluştur. Siparişleriniz seçtiğiniz en yakın marketlerden, bisikletli kuryelerimiz tarafından temin edilerek kapınıza temazsız bir şekilde bırakılır.",
     };
   },
-  computed:{
-    ...mapState(["Products"])
+  computed: {
+    ...mapState(["Products"]),
   },
-  mounted(){
-    this.mapProducts = this.Products.map(item => {
-      return{
+  mounted() {
+    this.mapProducts = this.Products.map((item) => {
+      return {
         name: item.name,
         price: item.price,
         src: item.src,
-      }
-    })
-    this.discountProducts = [this.mapProducts[12], this.mapProducts[20], this.mapProducts[2], this.mapProducts[4], this.mapProducts[14]]
-    this.$store.commit("setDiscountProducts",this.discountProducts)
-
+      };
+    });
+    this.discountProducts = [
+      this.mapProducts[12],
+      this.mapProducts[20],
+      this.mapProducts[2],
+      this.mapProducts[4],
+      this.mapProducts[14],
+    ];
+    this.$store.commit("setDiscountProducts", this.discountProducts);
   },
 };
 </script>
 
 <style scoped>
-h1{
+h1 {
   font-family: libel;
   font-weight: 500;
   font-size: 45px;
@@ -100,11 +111,11 @@ h1{
   border-radius: 25px;
   color: white;
 }
-.products{
+.products {
   display: flex;
   justify-content: space-around;
 }
-.card{
+.card {
   max-width: 220px;
   height: 300px;
   margin: 10px;
@@ -114,20 +125,19 @@ h1{
   align-items: center;
 }
 
-@media screen and (max-width:1264px){
+@media screen and (max-width: 1264px) {
   h1 {
     font-size: 35px;
   }
 }
-@media screen and (max-width:960px){
-  .products{
+@media screen and (max-width: 960px) {
+  .products {
     display: flex;
     flex-direction: column;
   }
-  .card{
+  .card {
     margin: auto;
     margin-top: 15px;
   }
 }
-
 </style>
