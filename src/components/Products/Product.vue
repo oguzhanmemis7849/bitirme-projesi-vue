@@ -6,24 +6,21 @@
         emin olunuz!
       </div>
       <v-card
-        v-for="product in this.$store.state.filteredProducts"
-        :key="product"
+        v-for="product in products"
+        :key="product.id"
         class="ma-3 px-0 col-1 d-flex flex-column align-center"
         style="height: 360px; min-width: 190px"
         hover
       >
-        <img
+        <!-- <img
           v-if="discountList.includes(product.name)"
           src="@/assets/Products/indirim.png"
           alt=""
           class="discountIcon"
-        />
-        <img
-          height="190"
-          :src="require('@/assets/Products/' + product.src)"
-          :alt="product.name"
-          class="ml-0"
-        />
+        /> -->
+        <div id="products">
+          <img height="190" :src="product.src" class="ml-0" />
+        </div>
         <v-card-title>
           <div class="productTitle">
             {{ product.name }}
@@ -56,11 +53,12 @@
 <script>
 import { mapState } from "vuex";
 import { db } from "@/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 export default {
   props: ["category"],
   data() {
     return {
+      products: [],
       discountList: [],
       snackbar: false,
       timeout: 4000,
@@ -70,29 +68,34 @@ export default {
     ...mapState(["cart", "discountProducts"]),
   },
   async mounted() {
-    const docRef = doc(db, "products", "0jUHjm0E6p7QCr3Y1blc");
-    const docSnap = await getDoc(docRef);
+    const querySnapshot = await getDocs(collection(db, "products"));
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log(doc.id, " => ", doc.data());
+      // console.log(doc.data());
+      this.products.push(doc.data());
+      this.$store.commit("setProducts", doc.data());
+      // this.products = doc.data();
+      // this.base64ToImage(this.products.src, function (img) {
+      //   document.getElementById("products").appendChild(img);
+      // });
+    });
 
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-      this.$store.commit("setUser", docSnap.data());
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-    // this.$http.get("/products").then((result) => {
-    //   result.data.forEach((element) => {
-    //     element.amount = 1;
-    //   });
-
-    //   this.$store.commit("setProducts", result.data);
     //   this.$store.commit("resetProducts", result.data);
     // });
-    this.discountList = this.discountProducts.map((item) => {
-      return item.name;
-    });
+    // this.discountList = this.discountProducts.map((item) => {
+    //   return item.name;
+    // });
   },
   methods: {
+    base64ToImage(base64img, callback) {
+      var img = new Image();
+      img.onload = function () {
+        callback(img);
+      };
+      img.src = base64img;
+    },
+
     addCart(product, sum) {
       if (
         !this.cart.products

@@ -21,10 +21,7 @@
               <v-icon
                 class="icon"
                 v-show="isPencilActive == false"
-                @click="
-                  isPencilActive = true;
-                  isChange = true;
-                "
+                @click="editPhoto"
                 >mdi-pencil</v-icon
               >
             </div>
@@ -159,6 +156,10 @@ export default {
     }
   },
   methods: {
+    editPhoto() {
+      this.isPencilActive = true;
+      this.isChange = true;
+    },
     async saveForm() {
       await onAuthStateChanged(auth, (user) => {
         if (user) {

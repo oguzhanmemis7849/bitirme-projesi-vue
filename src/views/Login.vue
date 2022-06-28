@@ -55,6 +55,9 @@
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="3" xsm="12" align-end>
+                        <div id="product">
+                          <img height="190" :src="array.src" class="ml-0" />
+                        </div>
                         <v-btn
                           class="mt-3"
                           v-if="!progressBar"
@@ -198,11 +201,12 @@
 </template>
 
 <script>
+import DBJSON from "../db/db.json";
 import Card from "../components/Home/Card.vue";
 import CryptoJS from "crypto-js";
 import { auth } from "../firebase";
 import { db } from "../firebase";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, addDoc, collection, setDoc, getDoc } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -213,6 +217,7 @@ export default {
   components: { Card },
   data() {
     return {
+      array: [],
       registerDialog: false,
       cardTitle: "Moogi'ye Hoşgeldiniz...",
       cardText:
@@ -260,7 +265,26 @@ export default {
       },
     };
   },
+  created() {
+    // this.addToProductsFirebase();
+  },
   methods: {
+    addToProductsFirebase() {
+      let array = [];
+      for (var i in DBJSON) array.push([i, DBJSON[i]]);
+      let products = array[0][1];
+      console.log("src:", products[0].src);
+
+      products.forEach((element) => {
+        console.log(element);
+        try {
+          const docRef = addDoc(collection(db, "products"), element);
+          console.log("docreffffff", docRef);
+        } catch (e) {
+          console.log(e);
+        }
+      });
+    },
     registerSuccessfully() {
       this.registerDialog = false;
       window.location.reload();

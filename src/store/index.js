@@ -17,7 +17,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     resetProducts(state, products) {
-      state.Products = products;
+      state.Products.push(products);
     },
     setProducts(state, products) {
       state.filteredProducts = products;
