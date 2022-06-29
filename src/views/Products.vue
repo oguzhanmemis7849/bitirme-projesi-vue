@@ -5,8 +5,18 @@
         <search class="search" v-if="$route.path == '/products'" />
         <category-bar></category-bar>
       </div>
-
+      <div class="text-center" v-if="loading == true">
+        <v-progress-circular
+          color="red"
+          :size="100"
+          :width="5"
+          :value="100"
+          indeterminate
+          >Yükleniyor</v-progress-circular
+        >
+      </div>
       <product
+        v-else
         class="border col-12"
         :category="category"
         @cartList="transport($event)"
@@ -21,12 +31,19 @@ import CategoryBar from "../components/Products/categoryBar.vue";
 import Search from "../components/Products/Search.vue";
 export default {
   data() {
-    return {};
+    return {
+      loading: true,
+    };
   },
   components: {
     Product,
     CategoryBar,
     Search,
+  },
+  created() {
+    if (this.$store.state.Products.length != 0) {
+      this.loading = false;
+    }
   },
   methods: {},
 };

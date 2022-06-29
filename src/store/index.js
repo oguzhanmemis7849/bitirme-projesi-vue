@@ -19,6 +19,9 @@ const store = new Vuex.Store({
     resetProducts(state, products) {
       state.Products.push(products);
     },
+    addProducts(state, val) {
+      state.Products = val;
+    },
     setProducts(state, products) {
       state.filteredProducts = products;
     },

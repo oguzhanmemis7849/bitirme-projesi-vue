@@ -1,23 +1,23 @@
 <template>
   <v-container>
     <v-row class="pl-4 pt-4" justify="center">
-      <div v-if="this.$store.state.filteredProducts.length == 0">
+      <div v-if="this.$store.state.Products.length == 0">
         Aradığınız ürün bulunmamaktadır. Lütfen ürünün adını düzgün yazdığınıza
         emin olunuz!
       </div>
       <v-card
-        v-for="product in products"
+        v-for="product in $store.state.Products"
         :key="product.id"
         class="ma-3 px-0 col-1 d-flex flex-column align-center"
         style="height: 360px; min-width: 190px"
         hover
       >
-        <!-- <img
+        <img
           v-if="discountList.includes(product.name)"
           src="@/assets/Products/indirim.png"
           alt=""
           class="discountIcon"
-        /> -->
+        />
         <div id="products">
           <img height="190" :src="product.src" class="ml-0" />
         </div>
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { db } from "@/firebase";
 import { getDocs, collection } from "firebase/firestore";
 export default {
@@ -62,32 +62,44 @@ export default {
       discountList: [],
       snackbar: false,
       timeout: 4000,
+      deneme: [],
     };
   },
   computed: {
     ...mapState(["cart", "discountProducts"]),
+    ...mapGetters({ getProducst: "getProducts" }),
   },
-  async mounted() {
-    const querySnapshot = await getDocs(collection(db, "products"));
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, " => ", doc.data());
-      // console.log(doc.data());
-      this.products.push(doc.data());
-      this.$store.commit("setProducts", doc.data());
-      // this.products = doc.data();
-      // this.base64ToImage(this.products.src, function (img) {
-      //   document.getElementById("products").appendChild(img);
-      // });
-    });
 
-    //   this.$store.commit("resetProducts", result.data);
-    // });
-    // this.discountList = this.discountProducts.map((item) => {
-    //   return item.name;
-    // });
+  mounted() {
+    this.getProductsData();
   },
   methods: {
+    async getProductsData() {
+      const querySnapshot = await getDocs(collection(db, "products"));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        // console.log(doc.data());
+        this.products.push(doc.data());
+        // this.$store.commit("addProducts", this.products);
+        this.$store.commit("setProducts", this.products);
+        this.$store.commit("addProducts", this.products);
+        // this.$store.commit("addProducts", this.products);
+
+        // this.$store.commit("addProducts", this.deneme);
+        // this.products = doc.data();
+        // this.base64ToImage(this.products.src, function (img) {
+        //   document.getElementById("products").appendChild(img);
+        // });
+      });
+      // this.$store.commit("addProducts", this.products);
+
+      //   this.$store.commit("resetProducts", result.data);
+      // });
+      this.discountList = this.discountProducts.map((item) => {
+        return item.name;
+      });
+    },
     base64ToImage(base64img, callback) {
       var img = new Image();
       img.onload = function () {
@@ -122,7 +134,7 @@ export default {
 }
 .discountPrice {
   position: absolute;
-  top: 250px;
+  top: 253px;
   color: red !important;
 }
 .productTitle {

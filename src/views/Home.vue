@@ -17,20 +17,26 @@
         <v-col cols="12" class="products">
           <v-card
             v-for="product in discountProducts"
-            :key="product"
+            :key="product.id"
             class="card"
             style="height: 330px"
             hover
           >
-            <img
+            <!-- <img
               height="190"
               :src="require('@/assets/Products/' + product.src)"
               :alt="product.name"
               class="ml-0"
+            /> -->
+            <img
+              height="190"
+              :src="product.src"
+              :alt="product.name"
+              class="ml-0"
             />
 
-            <v-card-title>
-              <div style="font-size: 19px">
+            <v-card-title class="cardTitle">
+              <div>
                 {{ product.name }}
               </div>
             </v-card-title>
@@ -89,10 +95,10 @@ export default {
     });
     this.discountProducts = [
       this.mapProducts[12],
-      this.mapProducts[20],
-      this.mapProducts[2],
-      this.mapProducts[4],
-      this.mapProducts[14],
+      this.mapProducts[27],
+      this.mapProducts[22],
+      this.mapProducts[41],
+      this.mapProducts[24],
     ];
     this.$store.commit("setDiscountProducts", this.discountProducts);
   },
@@ -104,6 +110,10 @@ h1 {
   font-family: libel;
   font-weight: 500;
   font-size: 45px;
+}
+.cardTitle {
+  font-family: libel;
+  font-size: 25px;
 }
 .discountProducts {
   text-align: center;
